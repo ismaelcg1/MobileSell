@@ -1,0 +1,70 @@
+body{
+  /*Color de fondo degradado*/
+
+  /* Para buscadores que no soporten degradados*/
+  background-color: #eeeeee;
+  background-image: linear-gradient(to left, #560764, #eeeeee);
+}
+.imagenRegistroInicial {
+  margin-left: 0.6%;
+  margin-top: 2%;
+  height: 45%;
+  width: 45%;
+}
+#div_terminos_condiciones{
+  margin-top: 8%;
+}
+#contenedorLogoRegistro {
+  justify-content: center;
+}
+#contenedorTextoRegistroInicial {
+  justify-content: center;
+}
+#select_ingresar_ciudad{
+  height: 150%;
+  width: 100%;
+}
+label {
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+button {
+  height: 120%;
+}
+#DivBtnCrearCuenta {
+  padding: 5%;
+}
+#DivBtnLimpiar {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+
+/*Media-querys*/
+@media (min-width: 768px) {
+  label {
+    text-align: right;
+  }
+  .imagenRegistroInicial {
+    margin-left: 1%;
+    margin-top: 2%;
+    height: 25%;
+    width: 25%;
+  }
+  #DivBtnCrearCuenta, #DivBtnLimpiar {
+    padding: 5%;
+  }
+  #textoRegistroInicial {
+    font-size: 3em;
+  }
+  #select_ingresar_ciudad {
+    height: 100%;
+  }
+  #div_terminos_condiciones{
+    margin-top: 3%;
+  }
+
+}

@@ -1,0 +1,86 @@
+/*PALETA DE COLORES
+#560764 --> 5f076e
+Menú y footer: #1f0025
+#bb8fa9
+#d8cbbb
+#eeeeee
+*/
+* {
+  font-size: 1.005em;
+}
+body{
+  /*Color de fondo degradado*/
+  /* Para buscadores que no soporten degradados */
+  background-color: #eeeeee; 
+  background-image: linear-gradient(to left, #560764, #eeeeee);
+}
+label {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+div>a {
+  color: black;
+  font-family: sans-serif;
+}
+
+div>a:hover {
+  color: white;
+  font-size: 1.05em;
+}
+
+.imagenRegistroInicial {
+  width: 83%;
+  height: 83%;
+  display: block;
+  margin-left: 5%;
+  margin-bottom: 3%;
+}
+
+#contenedorLogin {
+  min-height: 620px;
+  padding-bottom: 4%;
+}
+
+#formularioInicial {
+  padding-top: 2%;
+  margin-left: 10%;
+}
+
+#divNoCuenta {
+  margin-top: 6%;
+}
+
+#btnAcceder {
+  margin-top: 3%;
+  margin-bottom: 6%;
+}
+
+/*Media-querys*/
+@media (min-width: 768px) {
+  #divIngresarPassword {
+    margin-top: 2%;
+    margin-bottom: 4%;
+  }
+  label{
+    text-align: right;
+  }
+  #formularioInicial {
+    margin-left: 14%;
+  }
+
+  #divNoCuenta {
+    margin-top: 3%;
+  }
+
+  #btnAcceder {
+    margin: 0%;
+  }
+
+  .imagenRegistroInicial {
+    width: 50%;
+    height: 50%;
+    display: block;
+    margin-left: 20%;
+    margin-bottom: 4%;
+  }
+}

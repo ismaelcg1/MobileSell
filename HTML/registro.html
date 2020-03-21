@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Mobile Sell</title>
+  <style>
+    @import "../CSS/registroInicial.css";
+    @import "../CSS/estiloFooter.css";
+  </style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- Optional JavaScript -->
+  <!-- jQuery, Popper.js, Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-K
+      J3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymou
+      s"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <header class="col-12">
+    <link rel="shortcut icon" type="image/png" href="../Iconos/logo5.png" />
+  </header>
+
+  <div class="container" id="contenedorRegistroInicial">
+    <form id="formularioInicial">
+
+      <div class="form-group row" id="contenedorLogoRegistro">
+        <!-- LOGO -->
+        <img class="imagenRegistroInicial" src="../Iconos/logo5.png" />
+      </div>
+      <div class="form-group row" id="contenedorTextoRegistroInicial">
+        <h1 id="textoRegistroInicial">Crear mi cuenta</h1>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="ingresar_nombre" class="col-12 col-md-4 col-form-label">Nombre:</label>
+        <div class="col-12 col-md-4">
+          <input type="text" class="form-control" id="ingresar_nombre" placeholder="Introduzca su nombre">
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="ingresar_apellidos" class="col-12 col-md-4 col-form-label">Apellidos:</label>
+        <div class="col-12 col-md-4">
+          <input type="text" class="form-control" id="ingresar_apellidos" placeholder="Introduzca sus apellidos">
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="ingresar_fecha_nacimiento" class="col-12 col-md-4 col-form-label">Fecha de nacimiento:</label>
+        <div class="col-12 col-md-4">
+          <input type="date" class="form-control" id="ingresar_fecha_nacimiento" placeholder="Introduzca su fecha de nacimiento">
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="ingresar_email" class="col-12 col-md-4 col-form-label">Correo electrónico:</label>
+        <div class="col-12 col-md-4">
+          <input type="email" class="form-control" id="ingresar_email" placeholder="Introduzca su email">
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="ingresar_password" class="col-12 col-md-4 col-form-label">Contraseña:</label>
+        <div class="col-12 col-md-4">
+          <input type="password" class="form-control" id="ingresar_password" placeholder="Introduzca su contraseña">
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="ingresar_password2" class="col-12 col-md-4 col-form-label">Repita contraseña:</label>
+        <div class="col-12 col-md-4">
+          <input type="password" class="form-control" id="ingresar_password2" placeholder="Vuelva a introducir su contraseña">
+        </div>
+        <div class="col-1"></div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label id="labelCiudad" class="col-12 col-md-4 col-form-label">Ciudad:</label>
+        <div class="col-12 col-md-4">
+          <select id="select_ingresar_ciudad">
+            <option value="" disabled selected>Selecciona tu ciudad</option>
+            <option value="Sevilla">Sevilla</option>
+            <option value="Huelva">Huelva</option>
+            <option value="Cordoba">Córdoba</option>
+            <option value="Jaén">Jaén</option>
+            <option value="Cádiz">Cádiz</option>
+            <option value="Málaga">Málaga</option>
+            <option value="Granada">Granada</option>
+            <option value="Almería">Almería</option>
+          </select>
+          <div class="col-1"></div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1 col-md-3"></div>
+        <!--
+        <div class="col-12 col-md-4">
+          <input type="password" class="form-control">
+        </div>
+        <label class="col-12 col-md-4 col-form-label">He leído y acepto los términos y condiciones de uso</label>
+      -->
+        <div class="custom-control custom-checkbox col-11 col-md-6" id="div_terminos_condiciones">
+            <input type="checkbox" class="custom-control-input" id="checkbox_terminos_condiciones">
+            <label class="custom-control-label" for="checkbox_terminos_condiciones">He leído y acepto los términos y condiciones de uso</label>
+        </div>
+
+        <div class="col-1"></div>
+      </div>
+
+      <div class="botones form-group row">
+        <div class="col-sm-2 order-sm-first"></div>
+        <div class="col-12 col-sm-4" id="DivBtnCrearCuenta">
+          <button type="submit" id="btnCrearCuenta" class="btn btn-dark btn-block">Crear cuenta</button>
+        </div>
+        <!-- Con order-sm-first ordenamos el orden dependiendo del tamaño -->
+        <div class="col-12 col-sm-4 order-sm-first" id="DivBtnLimpiar">
+          <button type="reset" id="btnLimpiar" class="btn btn-secondary btn-block">Limpiar</button>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="container-fluid" id="contenedorFooter">
+    <iframe src="footer.html" scrolling="no"></iframe>
+  </div>
+
+</body>
+
+
+</html>
