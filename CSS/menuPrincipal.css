@@ -1,0 +1,31 @@
+.imagenMenu {
+  height: 18%;
+  width: 18%;
+}
+div>ul>li>a:hover {
+  background-color: #e8e8e8;
+  border-radius: 20px 3px;
+  font-weight: 600;
+}
+iframe{
+  width: 100%;
+  border-style: none;
+}
+#contenendorMenu{
+  padding: 0px;
+  margin: 0px;
+}
+body{
+  padding: 0px;
+  margin: 0px;
+}
+#contenedorMenuPrincipal {
+  margin: 0px;
+  padding: 0px;
+}
+@media (min-width: 768px) {
+  .imagenMenu {
+    height: 10%;
+    width: 10%;
+  }
+}
