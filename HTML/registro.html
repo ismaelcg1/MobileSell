@@ -7,7 +7,6 @@
   <title>Mobile Sell</title>
   <style>
     @import "../CSS/registroInicial.css";
-    @import "../CSS/estiloFooter.css";
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -98,6 +97,7 @@
         <div class="col-12 col-md-4">
           <select id="select_ingresar_ciudad">
             <option value="" disabled selected>Selecciona tu ciudad</option>
+            <!-- PRUEBAS, AQUÍ IRÍA UNA PETICIÓN A LA BASE DE DATOS -->
             <option value="Sevilla">Sevilla</option>
             <option value="Huelva">Huelva</option>
             <option value="Cordoba">Córdoba</option>
@@ -113,12 +113,6 @@
 
       <div class="form-group row">
         <div class="col-1 col-md-3"></div>
-        <!--
-        <div class="col-12 col-md-4">
-          <input type="password" class="form-control">
-        </div>
-        <label class="col-12 col-md-4 col-form-label">He leído y acepto los términos y condiciones de uso</label>
-      -->
         <div class="custom-control custom-checkbox col-11 col-md-6" id="div_terminos_condiciones">
             <input type="checkbox" class="custom-control-input" id="checkbox_terminos_condiciones">
             <label class="custom-control-label" for="checkbox_terminos_condiciones">He leído y acepto los términos y condiciones de uso</label>
@@ -140,10 +134,6 @@
       </div>
 
     </form>
-  </div>
-
-  <div class="container-fluid" id="contenedorFooter">
-    <iframe src="footer.html" scrolling="no"></iframe>
   </div>
 
 </body>

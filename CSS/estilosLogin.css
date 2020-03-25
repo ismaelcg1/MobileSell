@@ -11,7 +11,7 @@ Menú y footer: #1f0025
 body{
   /*Color de fondo degradado*/
   /* Para buscadores que no soporten degradados */
-  background-color: #eeeeee; 
+  background-color: #eeeeee;
   background-image: linear-gradient(to left, #560764, #eeeeee);
 }
 label {
