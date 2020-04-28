@@ -35,12 +35,23 @@ div>a:hover {
   margin-left: 5%;
   margin-bottom: 3%;
 }
-
+.icono_warning{
+  margin-top: 7%;
+}
 #contenedorLogin {
   min-height: 620px;
   padding-bottom: 4%;
 }
 
+#emailVacio {
+  display: none;
+}
+#passwordVacia {
+  display: none;
+}
+#passwordLogitudIncorrecta {
+  display: none;
+}
 #formularioInicial {
   padding-top: 2%;
   margin-left: 10%;

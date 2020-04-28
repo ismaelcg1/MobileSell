@@ -12,13 +12,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <!-- Optional JavaScript -->
   <!-- jQuery, Popper.js, Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-K
-      J3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymou
-      s"></script>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="../JavaScript/index.js"></script>
 </head>
 
 <body>
@@ -30,6 +28,7 @@
 
   <div class="container-fluid" id="contenedorLogin">
       <div class="container">
+
         <form id="formularioInicial">
 
           <div class="form-group row">
@@ -37,26 +36,53 @@
             <img class="imagenRegistroInicial" src="../Iconos/logo5.png" />
           </div>
 
+
+
+          <div class="form-group row">
+            <div class="col-sm-1 col-md-2"></div>
+
+            <div class="col-11 col-sm-9 col-md-7 alert alert-warning" id="emailVacio" role="alert">
+              <strong>Campo email vacio.</strong> Por favor, introduzca su email.
+            </div>
+
+            <div class="col-11 col-sm-9 col-md-7 alert alert-warning" id="passwordVacia" role="alert">
+              <strong>Campo contraseña vacio.</strong> Por favor, introduzca su contraseña.
+            </div>
+
+            <div class="col-11 col-sm-9 col-md-7 alert alert-warning" id="passwordLogitudIncorrecta" role="alert">
+              <strong>Longitud de contraseña incorrecta.</strong> Debe tener un mínimo de 8 y un máximo de 16 caracteres.
+            </div>
+
+          </div>
+
+
+
           <div class="form-group row">
             <div class="col-sm-1"></div>
             <label for="ingresar_email" class="col-12 col-sm-2 col-form-label">Email:</label>
-            <div class="col-11 col-sm-6">
-              <input type="email" class="form-control" id="ingresar_email" placeholder="Introduzca su email">
+            <div class="col-10 col-sm-6">
+              <input value="" type="email" class="form-control" id="ingresar_email" placeholder="Introduzca su email">
+            </div>
+            <div class="col-1">
+              <img class="icono_warning" src="../Iconos/warning.png" style="visibility: hidden"/>
             </div>
           </div>
 
           <div class="form-group row" id="divIngresarPassword">
             <div class="col-sm-1"></div>
             <label for="ingresar_password" class="col-12 col-sm-2 col-form-label">Contraseña:</label>
-            <div class="col-11 col-sm-6">
-              <input type="password" class="form-control" id="ingresar_password" placeholder="Introduzca su contraseña">
+            <div class="col-10 col-sm-6">
+              <input value="" type="password" class="form-control" id="ingresar_password" placeholder="Introduzca su contraseña">
+            </div>
+            <div class="col-1">
+              <img class="icono_warning" src="../Iconos/warning.png" style="visibility: hidden"/>
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-sm-3 order-sm-first"></div>
             <div class="col-11 col-sm-3" id="btnAcceder">
-              <button type="submit" class="btn btn-dark btn-block">Acceder</button>
+              <button type="button" class="btn btn-dark btn-block" onclick="comprobarDatos()">Acceder</button>
             </div>
             <!-- Con order-sm-first ordenamos el orden dependiendo del tamaño -->
             <div class="col-11 col-sm-3 order-sm-first">
