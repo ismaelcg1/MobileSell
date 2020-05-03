@@ -36,14 +36,15 @@ div>a:hover {
   margin-bottom: 3%;
 }
 .icono_warning{
-  margin-top: 7%;
+  margin-top: 8%;
+  visibility: hidden;
 }
 #contenedorLogin {
   min-height: 620px;
   padding-bottom: 4%;
 }
 
-#emailVacio {
+#emailVacio, #emailIncorrecto {
   display: none;
 }
 #passwordVacia {

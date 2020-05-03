@@ -29,7 +29,7 @@
   <div class="container-fluid" id="contenedorLogin">
       <div class="container">
 
-        <form id="formularioInicial">
+        <form id="formularioInicial" name="formularioInicial" action="../PHP/login.php" method="post">
 
           <div class="form-group row">
             <!-- LOGO -->
@@ -43,6 +43,10 @@
 
             <div class="col-11 col-sm-9 col-md-7 alert alert-warning" id="emailVacio" role="alert">
               <strong>Campo email vacio.</strong> Por favor, introduzca su email.
+            </div>
+
+            <div class="col-11 col-sm-9 col-md-7 alert alert-warning" id="emailIncorrecto" role="alert">
+              <strong>Campo email incorrecto.</strong> El email puede contener letras, numeros, tildes..., pero no espacios en blanco o caracteres especiales. El tamaño máximo debe ser de 32 caracteres.
             </div>
 
             <div class="col-11 col-sm-9 col-md-7 alert alert-warning" id="passwordVacia" role="alert">
@@ -61,10 +65,10 @@
             <div class="col-sm-1"></div>
             <label for="ingresar_email" class="col-12 col-sm-2 col-form-label">Email:</label>
             <div class="col-10 col-sm-6">
-              <input value="" type="email" class="form-control" id="ingresar_email" placeholder="Introduzca su email">
+              <input value="" type="email" name="email" class="form-control" id="ingresar_email" placeholder="Introduzca su email">
             </div>
             <div class="col-1">
-              <img class="icono_warning" src="../Iconos/warning.png" style="visibility: hidden"/>
+              <img class="icono_warning" src="../Iconos/warning.png"/>
             </div>
           </div>
 
@@ -72,10 +76,10 @@
             <div class="col-sm-1"></div>
             <label for="ingresar_password" class="col-12 col-sm-2 col-form-label">Contraseña:</label>
             <div class="col-10 col-sm-6">
-              <input value="" type="password" class="form-control" id="ingresar_password" placeholder="Introduzca su contraseña">
+              <input value="" type="password" name="password" class="form-control" id="ingresar_password" placeholder="Introduzca su contraseña">
             </div>
             <div class="col-1">
-              <img class="icono_warning" src="../Iconos/warning.png" style="visibility: hidden"/>
+              <img class="icono_warning" src="../Iconos/warning.png"/>
             </div>
           </div>
 

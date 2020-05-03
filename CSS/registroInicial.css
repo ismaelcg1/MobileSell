@@ -1,21 +1,31 @@
 body{
   /*Color de fondo degradado*/
-
   /* Para buscadores que no soporten degradados*/
   background-color: #eeeeee;
   background-image: linear-gradient(to left, #560764, #eeeeee);
 }
+a {
+  height: 100%;
+  width: 30%;
+}
+.box{
+  display: inline-block;
+}
 .imagenRegistroInicial {
-  margin-left: 0.6%;
-  margin-top: 2%;
-  height: 45%;
-  width: 45%;
+  margin-left: 70%;
+  margin-top: 5%;
+  width: 200%;
+}
+#camposVacios, #nombreIncorrecto, #apellidosIncorrectos, #fechaIncorrecta,
+#logintudCorreoIncorrecta, #correoIncorrecto, #longitudPasswordIncorrecta,
+#PasswordDistintas, #passwordInsegura, #terminosYCondiciones {
+  display: none;
 }
 #div_terminos_condiciones{
   margin-top: 8%;
 }
 #contenedorLogoRegistro {
-  justify-content: center;
+  text-align: center;
 }
 #contenedorTextoRegistroInicial {
   justify-content: center;
@@ -41,7 +51,10 @@ button {
   padding-left: 8%;
   padding-right: 8%;
 }
-
+#ingresar_nombre, #ingresar_apellidos, #ingresar_fecha_nacimiento,
+#ingresar_email, #ingresar_password, #ingresar_password2 {
+  border-width: 2px;
+}
 
 /*Media-querys*/
 @media (min-width: 768px) {
@@ -49,10 +62,9 @@ button {
     text-align: right;
   }
   .imagenRegistroInicial {
-    margin-left: 1%;
-    margin-top: 2%;
-    height: 25%;
-    width: 25%;
+    margin-left: 123%;
+    margin-top: 4%;
+    width: 90%;
   }
   #DivBtnCrearCuenta, #DivBtnLimpiar {
     padding: 5%;
