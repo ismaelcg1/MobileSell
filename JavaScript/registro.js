@@ -1,5 +1,4 @@
 function comprobarDatosIntroducidos() {
-  var todosDatosCorrectos = false;
   // Guardamos los datos introducidos en los input...
   var nombre = document.getElementById("ingresar_nombre").value;
   var apellidos = document.getElementById("ingresar_apellidos").value;
@@ -84,7 +83,6 @@ function comprobarDatosIntroducidos() {
                 terminosCondiciones.style.display = "block";
 
               } else {
-                todosDatosCorrectos = true;
                 usuarioCreado = new Usuario (nombre, apellidos, fechaNacimiento, correo, password, ciudad);
 
                 // Enviamos los datos del formulario
@@ -99,10 +97,6 @@ function comprobarDatosIntroducidos() {
         }
       }
     }
-  }
-
-  if (todosDatosCorrectos) {
-    alert("Todo correcto socio. Cambia el botón por tipo submit y andando...");
   }
 }
 
@@ -139,22 +133,12 @@ function addOpciones(domElement, arrayProvincias) {
 
 function comprobarNombre(nombre) {
   var nombreCorrecto = false;
-  var formatoNombre = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
+  var formatoNombre = /^([A-ZÁÉÍÓÚa-zñáéíóú]+[\s]*)+$/;
 
   if (formatoNombre.test(nombre)) {
     nombreCorrecto = true;
   }
   return nombreCorrecto;
-}
-
-function comprobarSeguridadPassword(passwordIntroducida) {
-  var passwordSegura = false;
-  var formatoPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,16}/;
-
-  if (formatoPassword.test(passwordIntroducida)) {
-    passwordSegura = true;
-  }
-  return passwordSegura;
 }
 
 function cambiarBordesLimpiar() {

@@ -44,13 +44,8 @@ div>a:hover {
   padding-bottom: 4%;
 }
 
-#emailVacio, #emailIncorrecto {
-  display: none;
-}
-#passwordVacia {
-  display: none;
-}
-#passwordLogitudIncorrecta {
+#emailVacio, #emailIncorrecto, #passwordVacia, #passwordLogitudIncorrecta,
+#passwordIncorrecta {
   display: none;
 }
 #formularioInicial {
