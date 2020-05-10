@@ -3,11 +3,30 @@ require_once 'conexion.php';
 require_once 'usuario.php';
 // Inicializamos sesión y cogemos el usuario actual:
 session_start();
-$usuario = $_SESSION['usuarioActual'];
-// Variables nombre tablas
-$tabla_usuarios = 'usuarios';
+// Variables a utilizar posteriormente
+$usuarioCreado = false;
+$usuario;
+$uidUsuario;
+$nombreUsuario;
 $tabla_moviles_usuario = 'moviles_usuarios';
+// Comprobamos que la sesión existe:
+if (isset($_SESSION['usuarioActual']) ) {
+  $usuario = $_SESSION['usuarioActual'];
+  $usuarioCreado = true;
+  $uidUsuario = $usuario->get_uid();
+  $nombreUsuario = $usuario->get_nombre();
+}
 
+// Ahora vamos a obtener el número de móviles que ha subido el usuario
+$contadorMoviles = obtenerCantidadMoviles($uidUsuario, $tabla_moviles_usuario, $con);
+
+function obtenerCantidadMoviles($uidUsuario, $tabla_moviles_usuario, $con){
+  $contarMoviles = "SELECT id_usuario FROM $tabla_moviles_usuario WHERE id_usuario = '$uidUsuario'";
+  $result = $con->query($contarMoviles);
+  $count = mysqli_num_rows($result);
+
+  return $count;
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +35,7 @@ $tabla_moviles_usuario = 'moviles_usuarios';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Mobile Sell</title>
+  <title>Mobile Sell - Inicio</title>
   <style>
     @import "../CSS/paginaPrincipal.css";
     @import "../CSS/estiloFooter.css";
@@ -30,15 +49,11 @@ $tabla_moviles_usuario = 'moviles_usuarios';
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-  <!-- Para navbar -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <script type="text/javascript" src="../JavaScript/consejos.js"></script>
 </head>
 
 
-<body>
+<body onload="obtenerConsejo()">
 
   <header class="col-12">
     <link rel="shortcut icon" type="image/png" href="../Iconos/logo5.png" />
@@ -81,11 +96,11 @@ $tabla_moviles_usuario = 'moviles_usuarios';
             Mi cuenta
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="miCuenta/ver_perfil.html">Ver perfil</a>
+            <a class="dropdown-item" href="miCuenta/ver_perfil.php">Ver perfil</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Editar perfil</a>
+            <a class="dropdown-item" href="miCuenta/editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Cerrar sesión</a> <!-- session_destroy(); -->
+            <a class="dropdown-item" href="miCuenta/cerrar_sesion.php">Cerrar sesión</a> <!-- session_destroy(); -->
           </div>
         </li>
 
@@ -106,14 +121,19 @@ $tabla_moviles_usuario = 'moviles_usuarios';
   </nav>
 
 
-
   <div class="container-fluid" id="contenedorLogin">
     <div class="container col-12">
-      <h1 class="col-12">¡Hola <?php echo $usuario->get_nombre(); ?>!</h1>
+      <h1 class="col-12">¡Hola <?php
+      if ($usuarioCreado) {
+        echo $nombreUsuario;
+      }
+      ?>!</h1>
       <br>
-      <p class="col-12">Has añadido un total de <u>0</u> móvil/es</p>
+      <p class="col-12">Has añadido un total de <u><?php
+      echo $contadorMoviles;
+      ?></u> móvil/es</p>
 
-<br><br><br><br>
+<br><br><br>
 
       <div class="row align-items-center">
         <div class="col-6 col-md-3 m-auto" id="sabias">
@@ -121,9 +141,6 @@ $tabla_moviles_usuario = 'moviles_usuarios';
         </div>
         <div class="col-12 col-md-6" id="textoConsejos">
           <p class="col-10 col-md-8 m-auto" id="consejo">
-            No se puede comparar la RAM de un dispotivo iOS,
-            con la de un dispositivo Android, pues llevan sistemas
-             operativos diferentes.
            </p>
         </div>
       </div>

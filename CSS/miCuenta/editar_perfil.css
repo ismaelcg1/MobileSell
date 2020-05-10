@@ -1,0 +1,28 @@
+#contenedorVerPerfil {
+  min-height: 940px;
+}
+.editar{
+  opacity: 0.9;
+}
+.editar:hover {
+  transform: scale(1.15) rotate(5deg);
+  filter: invert(0.4) sepia(1) hue-rotate(207deg) saturate(5000%);
+  cursor: pointer;
+  opacity: 1;
+}
+/* PARA EDITAR PERFIL - MENSAJES */
+#camposVacios, #nombreIncorrecto,#apellidosIncorrectos,#fechaIncorrecta,
+#correoIncorrecto {
+  display: none;
+}
+.mensajesAdvertencia {
+  margin-top: 3%;
+}
+@media (min-width: 768px) {
+  #contenedorVerPerfil {
+    min-height: 900px;
+  }
+  .mensajesAdvertencia {
+    margin-top: 0%;
+  }
+}

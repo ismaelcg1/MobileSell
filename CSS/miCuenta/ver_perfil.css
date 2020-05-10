@@ -3,7 +3,7 @@
   background-color: #d8cbbb;
   background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
   margin: 0px;
-  min-height: 800px;
+  min-height: 790px;
   font-size: 1.07em;
 }
 #imgPerfil{
@@ -19,7 +19,6 @@
   /* Para buscadores que no soporten degradados */
   background-color: #5f076e;
   background-image: linear-gradient(to bottom, #5f076e, #9a58a6);
-
 }
 #textoPerfil{
   color: #fefaf4;

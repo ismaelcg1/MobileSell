@@ -22,13 +22,18 @@ p {
   padding: 3%;
 }
 #consejo{
-  padding: 4%;
+  padding: 7%;
   background-color: #560764;
   border-radius: 20px 2px;
   color: white;
+  text-align: justify;
+  word-wrap: break-word; /*Esto es para que no se desborde al incluir texto*/
 }
 
 @media (min-width: 768px) {
+  #consejo{
+    padding: 5%;
+  }
   #contenedorLogin {
     min-height: 560px;
   }

@@ -1,10 +1,27 @@
+<?php
+require_once '../conexion.php';
+require_once '../usuario.php';
+// Inicializamos sesión y cogemos el usuario actual:
+session_start();
+$usuarioCreado = false;
+$usuario;
+// Comprobamos que la sesión existe:
+if (isset($_SESSION['usuarioActual']) ) {
+  $usuario = $_SESSION['usuarioActual'];
+  $usuarioCreado = true;
+}
+// Variables nombre tablas
+$tabla_usuarios = 'usuarios';
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Mobile Sell</title>
+  <title>Mobile Sell - Ver perfil</title>
   <style>
     @import "../../CSS/miCuenta/ver_perfil.css";
     @import "../../CSS/estiloFooter.css";
@@ -14,17 +31,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <!-- Optional JavaScript -->
   <!-- jQuery, Popper.js, Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-K
-      J3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymou
-      s"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-  <!-- Para navbar -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -45,7 +54,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="../paginaPrincipal.html">
+          <a class="nav-link" href="../paginaPrincipal.php">
             <img src="../../Iconos/casa.png" alt="Icono inicio">
             Inicio
           </a>
@@ -73,9 +82,9 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item">Ver perfil</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Editar perfil</a>
+            <a class="dropdown-item" href="editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Cerrar sesión</a>
+            <a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>
 
@@ -98,13 +107,88 @@
 
 
   <div class="container-fluid" id="contenedorVerPerfil">
-    <h1>Pagina ver perfil</h1>
+    <form id="datosUsuario">
+
+      <div class="form-group row" id="contenedorTextoPerfil">
+        <h1 id="textoPerfil">Perfil de <?php
+        if ($usuarioCreado) {
+          echo $usuario->get_nombre();
+        }
+        ?></h1>
+      </div>
+      <div class="form-group row" id="contenedorimgPerfil">
+        <!-- Centrar imagen con bootstrap: .mx-auto .d-block -->
+        <img src="../../Iconos/avatar.png" id="imgPerfil" class="img-fluid rounded-circle mx-auto d-block">
+      </div>
+
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="nombre" class="col-12 col-md-4 col-form-label">Nombre:</label>
+        <div class="col-12 col-md-4">
+          <input type="text" class="form-control" id="nombre" disabled value="<?php
+          if ($usuarioCreado) {
+            echo $usuario->get_nombre();
+          }?>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="apellidos" class="col-12 col-md-4 col-form-label">Apellidos:</label>
+        <div class="col-12 col-md-4">
+          <input type="text" class="form-control" id="apellidos" disabled value="<?php
+          if ($usuarioCreado) {
+            echo $usuario->get_apellidos();
+          }?>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="fecha_nacimiento" class="col-12 col-md-4 col-form-label">Fecha de nacimiento:</label>
+        <div class="col-12 col-md-4">
+          <input type="date" class="form-control" id="fecha_nacimiento" disabled value="<?php
+          if ($usuarioCreado) {
+            echo $usuario->get_fecha_nacimiento();
+          }?>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label for="email" class="col-12 col-md-4 col-form-label">Email:</label>
+        <div class="col-12 col-md-4">
+          <input type="email" class="form-control" id="email" disabled value="<?php
+          if ($usuarioCreado) {
+            echo $usuario->get_email();
+          }?>">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-1"></div>
+        <label id="labelCiudad" class="col-12 col-md-4 col-form-label">Ciudad:</label>
+        <div class="col-12 col-md-4">
+          <select id="select_ingresar_ciudad" disabled>
+            <option value="<?php
+            if ($usuarioCreado) {
+              echo $usuario->get_ciudad();
+            }?>" disabled selected><?php
+            if ($usuarioCreado) {
+              echo $usuario->get_ciudad();
+            }?></option>
+          </select>
+        </div>
+      </div>
+
+    </form>
   </div>
 
 
 
   <div class="container-fluid" id="contenedorFooter">
-    <iframe src="../footer.html" scrolling="no"></iframe>
+    <iframe src="../../HTML/footer.html" scrolling="no"></iframe>
   </div>
 
 </body>

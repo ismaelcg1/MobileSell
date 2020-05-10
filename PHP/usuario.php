@@ -1,10 +1,11 @@
 <?php
   class Usuario {
+    private $password;
+    private $email;
+    private $uid;
     private $nombre;
     private $apellidos;
     private $fecha_nacimiento;
-    private $password;
-    private $email;
     private $ciudad;
 
     public function __construct($email, $password, $uid, $nombre, $apellidos,
