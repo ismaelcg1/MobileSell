@@ -114,11 +114,11 @@ if (isset($_POST["nombre"])) {
             Móviles
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Mis móviles</a>
-            <a class="dropdown-item" href="../Moviles/anadir.html">Añadir</a>
-            <a class="dropdown-item" href="#">Eliminar</a>
+            <a class="dropdown-item" href="../Moviles/mis_moviles.php">Mis móviles</a>
+            <a class="dropdown-item" href="../Moviles/anadir.php">Añadir</a>
+            <a class="dropdown-item" href="../Moviles/eliminar.php">Eliminar</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Consultar/Comprar</a>
+            <a class="dropdown-item" href="../Moviles/consultar_comprar.php">Consultar/Comprar</a>
           </div>
         </li>
 
@@ -142,9 +142,9 @@ if (isset($_POST["nombre"])) {
             Ayuda
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="../ayuda/como_usar.html">Como usar</a>
+            <a class="dropdown-item" href="../../HTML/ayuda/como_usar.html">Como usar</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Desarrollador</a>
+            <a class="dropdown-item" href="../../HTML/ayuda/desarrollador.html">Desarrollador</a>
           </div>
         </li>
 
@@ -156,11 +156,7 @@ if (isset($_POST["nombre"])) {
     <form id="datosUsuario" name="datosUsuario" action="editar_perfil.php" method="post">
 
       <div class="form-group row" id="contenedorTextoPerfil">
-        <h1 id="textoPerfil">Perfil de <?php
-        if ($usuarioCreado) {
-          echo $usuario->get_nombre();
-        }
-        ?></h1>
+        <h1 id="textoPerfil">Editar perfil</h1>
       </div>
       <div class="form-group row" id="contenedorimgPerfil">
         <!-- Centrar imagen con bootstrap: .mx-auto .d-block -->

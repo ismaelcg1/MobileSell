@@ -66,11 +66,11 @@ $tabla_usuarios = 'usuarios';
             Móviles
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Mis móviles</a>
-            <a class="dropdown-item" href="../Moviles/anadir.html">Añadir</a>
-            <a class="dropdown-item" href="#">Eliminar</a>
+            <a class="dropdown-item" href="../Moviles/mis_moviles.php">Mis móviles</a>
+            <a class="dropdown-item" href="../Moviles/anadir.php">Añadir</a>
+            <a class="dropdown-item" href="../Moviles/eliminar.php">Eliminar</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Consultar/Comprar</a>
+            <a class="dropdown-item" href="../Moviles/consultar_comprar.php">Consultar/Comprar</a>
           </div>
         </li>
 
@@ -94,9 +94,9 @@ $tabla_usuarios = 'usuarios';
             Ayuda
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="../ayuda/como_usar.html">Como usar</a>
+            <a class="dropdown-item" href="../../HTML/ayuda/como_usar.html">Como usar</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Desarrollador</a>
+            <a class="dropdown-item" href="../../HTML/ayuda/desarrollador.html">Desarrollador</a>
           </div>
         </li>
 
