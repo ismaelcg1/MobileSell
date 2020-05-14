@@ -3,8 +3,8 @@
   background-color: #d8cbbb;
   background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
   margin: 0px;
-  min-height: 700px;
-  /*padding-bottom: 1%;*/
+  min-height: 800px;
+  padding-bottom: 2%;
 }
 #tituloPagina{
   padding-top: 0.5%;
@@ -22,11 +22,27 @@
   border-style: inset;
   border-width: 2px;
   border-color: #895e26;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 1%;
   padding: 1%;
 }
+#file-preview {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2%;
+}
 .divCampos {
+  padding-top: 1%;
   min-height: 100px;
+}
+#camposVacios, #fotoVacia{
+  display: none;
+}
+
+#modeloIncorrecto, #memoriaInternaIncorrecta,
+#bateriaIncorrecta, #ramIncorrecta, #mpxCamaraIncorrectos,
+#precioIncorrecto, #pulgadasIncorrectas{
+  display: none;
+}
+
+.errores{
+  margin-top: 3%;
 }
