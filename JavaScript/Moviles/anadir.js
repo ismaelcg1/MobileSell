@@ -7,18 +7,7 @@ function cargarMarcas() {
   addOpciones("marcasSelect", marcas, "select_ingresar_marca");
 }
 
-/*
-var marca = document.getElementById("select_ingresar_marca").value;
-var modelo = document.getElementById("ingresar_modelo").value;
-var memoria_interna = document.getElementById("ingresar_memoria_interna").value;
-var bateria = document.getElementById("ingresar_bateria").value;
-var memoria_ram = document.getElementById("ingresar_ram").value;
-var mpx_camara = document.getElementById("ingresar_mpx_camara").value;
-var precio = document.getElementById("ingresar_precio").value;
-var pulgadas_pantalla = document.getElementById("ingresar_pulgadas").value;
-var color = document.getElementById("ingresar_color").value;
-var estado_producto = document.getElementById("select_ingresar_estado").value;
-*/
+
 function verificarDatos(datoRevisar) {
   switch (datoRevisar) {
 
@@ -62,7 +51,7 @@ function verificarDatos(datoRevisar) {
         }
         break;
 
-      case 'mpx':
+    case 'mpx':
           var mpx = document.getElementById("ingresar_mpx_camara").value;
           var mensajeMpxIncorrecta = document.getElementById('mpxCamaraIncorrectos');
           if (verificarMegaPixelesCamara(mpx)) {
@@ -71,7 +60,8 @@ function verificarDatos(datoRevisar) {
             mensajeMpxIncorrecta.style.display = "block";
           }
           break;
-        case 'precio':
+
+    case 'precio':
             var precio = document.getElementById("ingresar_precio").value;
             var mensajePrecioIncorrecto = document.getElementById('precioIncorrecto');
             if (verificarPrecio(precio)) {
@@ -80,7 +70,8 @@ function verificarDatos(datoRevisar) {
               mensajePrecioIncorrecto.style.display = "block";
             }
             break;
-          case 'pulgadas':
+
+      case 'pulgadas':
               var pulgadas = document.getElementById("ingresar_pulgadas").value;
               var mensajePulgadasIncorrectas = document.getElementById('pulgadasIncorrectas');
               if (verificarPulgadasPantalla(pulgadas)) {
@@ -89,12 +80,13 @@ function verificarDatos(datoRevisar) {
                 mensajePulgadasIncorrectas.style.display = "block";
               }
               break;
-          default:
+
+      default:
           // Por defecto
           break;
   }
-
 }
+
 
 function verificarModelo(modelo) {
   var modeloCorrecto = false;
@@ -105,6 +97,7 @@ function verificarModelo(modelo) {
   }
   return modeloCorrecto;
 }
+
 
 function verificarMemoriaInterna(memoriaInterna) {
   var memoriaCorrecta = false;
@@ -120,6 +113,7 @@ function verificarMemoriaInterna(memoriaInterna) {
   return memoriaCorrecta;
 }
 
+
 function verificarBateria(bateria) {
   var bateriaCorrecta = false;
   var formatoBateria = /^[0-9]{2,5}$/;
@@ -133,6 +127,7 @@ function verificarBateria(bateria) {
   }
   return bateriaCorrecta;
 }
+
 
 function verificarRam(ram) {
   var ramCorrecta = false;
@@ -148,6 +143,7 @@ function verificarRam(ram) {
   return ramCorrecta;
 }
 
+
 function verificarMegaPixelesCamara(mpx) {
   var mpxCamaraCorrectos = false;
   var formatoMpxCamara = /^[0-9]{1,3}([,.][0-9]{0,2})?$/;
@@ -161,6 +157,7 @@ function verificarMegaPixelesCamara(mpx) {
   }
   return mpxCamaraCorrectos;
 }
+
 
 function verificarPrecio(precio) {
   var precioCorrecto = false;
@@ -176,6 +173,7 @@ function verificarPrecio(precio) {
   return precioCorrecto;
 }
 
+
 function verificarPulgadasPantalla(pulgadas){
   var pulgadasCorrectas = false;
   var formatoPulgadas = /^[0-9]{1,2}([,.][0-9]{0,2})?$/;
@@ -190,11 +188,7 @@ function verificarPulgadasPantalla(pulgadas){
   return pulgadasCorrectas;
 }
 
-/*
-function verificarColor() {
 
-}
-*/
 function cargarEstadoProducto() {
   var estados = ['Nuevo', 'Seminuevo', 'Segunda mano', 'Reacondicionado'];
   estados.sort();
@@ -212,6 +206,7 @@ function addOpciones(domElement, arrayInsercion, idSelect) {
     select.add(option);
   }
 }
+
 
 function comprobarCampos() {
   var marca = document.getElementById("select_ingresar_marca").value;
@@ -242,7 +237,13 @@ function comprobarCampos() {
         mensajeCamposVacios.style.display = "none";
         fotoNoSubida.style.display = "none";
 
-        // Se hace el submit
+        verficarCheckBox();
+        // Enviamos los datos del formulario
+        var formulario = document.forms['formularioAddMovil'];
+        if (!formulario) {
+          formulario = document.formularioAddMovil;
+        }
+        formulario.submit();
       }
 }
 
@@ -254,6 +255,15 @@ function noExisteFoto() {
    } else {
         return false;
    }
+}
+
+function verficarCheckBox() {
+  var checkboxVenta = document.getElementById("venta");
+  if (checkboxVenta.checked == true) {
+    checkboxVenta.value = 1;
+  } else {
+    checkboxVenta.value = 0;    
+  }
 }
 
 function comprobarTextoVacio(texto) {

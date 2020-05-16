@@ -21,8 +21,8 @@ if (isset($_COOKIE['emailRegistradoAnteriormente'])) {
   $registradoAnteriormente = false;
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 

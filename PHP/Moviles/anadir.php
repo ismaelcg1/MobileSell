@@ -1,3 +1,96 @@
+<?php
+// Requerimos el fichero para que sino está se interrumpa el flujo de ejecucion
+require_once '../conexion.php';
+require_once 'movil.php';
+require_once '../usuario.php';
+// Iniciamos la sesión para tener los datos del usuario
+session_start();
+$id_usuario;
+$realizadaInsercion = false;
+// Comprobamos que la sesión existe:
+if (isset($_SESSION['usuarioActual']) ) {
+  $usuario = $_SESSION['usuarioActual'];
+  $id_usuario = $usuario->get_uid();
+}
+// Comprobamos que 'se le ha dado' al boton submit
+if (isset($_POST['marca']) ) {
+  $realizadaInsercion = true;
+  // Variables a guardar
+  $marca = $_POST['marca'];
+  $modelo = $_POST['ingresar_modelo'];
+  $memoria_interna = $_POST['ingresar_memoria_interna'];
+  $bateria = $_POST['ingresar_bateria'];
+  $ram = $_POST['ingresar_ram'];
+  $color = $_POST['ingresar_color'];
+  $camara_mpx = $_POST['ingresar_mpx_camara'];
+  $pantalla_pulgadas = $_POST['ingresar_pulgadas'];
+  $estado_producto = $_POST['estado'];
+  $precio = $_POST['ingresar_precio'];
+  $foto = $_FILES ['ingresar_foto']['tmp_name']; // Se cogen asi los 'archivos', se guardan durante un rato en tmp_name
+  $en_venta;
+
+  if (!isset($_POST['venta']) ) { // Si no tiene valor, le ponemos 0
+    $en_venta = 0;
+  } else {
+    $en_venta = $_POST['venta'];
+  }
+
+  // Tablas BBDD
+  $tabla_moviles = 'moviles';
+  $tabla_moviles_usuarios = 'moviles_usuarios';
+
+  $formatosPermitidos = array("image/jpg", "image/jpeg", "image/gif", "image/png");
+  // Comprobamos que sea un archivo permitido:
+  if (in_array($_FILES['ingresar_foto']['type'], $formatosPermitidos)) {
+    // Hay que subir la foto a una carpeta del servidor y guardar la ruta.
+    // Creamos las carpetas si no existen:
+    $carpetaImg = "../../imagenesMoviles/";
+    if (!file_exists($carpetaImg)) {
+      mkdir($carpetaImg);
+    }
+
+    $carpetaUsuario = $carpetaImg."$id_usuario/";
+    if (!file_exists($carpetaUsuario)) {
+      mkdir($carpetaUsuario);
+    }
+    // Guardamos la imagen con el formato de fecha y hora actual:
+    $fecha_actual = date("d-m-y_H.i.s");
+    $nombreFoto = $fecha_actual.".png";// $_FILES['ingresar_foto']['name']
+    // Guardamos la ruta de la imagen
+    $ruta_foto = $carpetaUsuario.$nombreFoto;
+
+    // Movemos el archivo al directorio del 'servidor'
+    move_uploaded_file($foto, $ruta_foto);
+
+    $queryInsertarMovil = "INSERT INTO $tabla_moviles (marca, modelo, memoria_interna, bateria, ruta_foto, ram, color, camara_mpx, precio, pantalla_pulgadas, estado_producto)
+      VALUES ('$marca', '$modelo', '$memoria_interna', '$bateria', '$ruta_foto', '$ram', '$color', '$camara_mpx', '$precio', '$pantalla_pulgadas', '$estado_producto')";
+
+      $insertarMovil = $con->query($queryInsertarMovil);
+
+      // Cogemos el imei generado en la base de datos
+      $queryBusquedaImei = "SELECT imei FROM $tabla_moviles WHERE ruta_foto = '$ruta_foto' ";
+      $queryImei = $con->query($queryBusquedaImei);
+
+      $resultadoImei = $queryImei->fetch_row()[0];
+/* PARA CONJUNTO DE RESULTADOS
+      while ($fila = $queryImei->fetch_row()) {
+          $resultadoImei = $fila[0];
+      }
+*/
+      $queryInsertarMovilUsuario = "INSERT INTO $tabla_moviles_usuarios (id_usuario, imei_movil, en_venta)
+        VALUES ('$id_usuario', '$resultadoImei', '$en_venta')";
+
+      $queryMovilesUsuarios = $con->query($queryInsertarMovilUsuario);
+
+      // Indicar al usuario que se ha subido el móvil correctamente
+
+  }
+}
+
+mysqli_close($con);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -97,8 +190,8 @@
             <h1 class="text-center">Añadir móvil</h1>
         </div>
     </div>
-
-    <form id="formularioAddMovil" name="formularioAddMovil" action="" method="post">
+<!-- Para subir fotos enctype="multipart/form-data" se suele usar -->
+    <form enctype="multipart/form-data" id="formularioAddMovil" name="formularioAddMovil" action="anadir.php" method="post">
 
     <div class="form-group row">
       <div class="col-11 col-sm-3 m-auto" id="divFoto">
@@ -116,6 +209,18 @@
     <div class="col-12 col-sm-8">
       <!-- Controlamos errores principales -->
       <div class="form-group row errores" >
+
+        <?php
+        if ($realizadaInsercion) {
+            echo '
+              <div class="col-11 alert alert-primary alert-dismissible m-auto">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>¡Todo correcto!</strong> Su dispositivo '.$marca.' '.$modelo.' se ha insertado correctamente.
+              </div>
+            ';
+        }
+        ?>
+
           <div class="col-11 alert alert-warning m-auto" id="camposVacios" role="alert">
             <strong>Hay algún campo vacio.</strong> Por favor, revise y rellene correctamente todos los campos.
           </div>
@@ -234,9 +339,9 @@
             </div>
 
             <div class="col-12 col-md-6 ml-auto divCampos" id="divVenta">
-              <label for="en_venta" class="col-12 col-form-label font-weight-bold">Producto en venta:</label>
+              <label for="venta" class="col-12 col-form-label font-weight-bold">Producto en venta:</label>
               <div class="col-12">
-                <input value="" type="checkbox" name="en_venta" class="form-control" id="en_venta" placeholder="¿Quiere vender el producto?">
+                <input value="" type="checkbox" name="venta" class="form-control" id="venta" placeholder="¿Quiere vender el producto?">
               </div>
             </div>
             <div class="col-12 col-md-6 mr-auto divCampos" id="divBoton">
