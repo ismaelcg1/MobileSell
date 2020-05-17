@@ -1,0 +1,34 @@
+#contenedorVerMovil {
+  /* Para buscadores que no soporten degradados */
+  background-color: #d8cbbb;
+  background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
+  margin: 0px;
+  min-height: 800px;
+  padding-bottom: 2%;
+}
+#tituloPagina{
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  color: white;
+  /*Color de fondo degradado*/
+  /* Para buscadores que no soporten degradados */
+  background-color: #5f076e;
+  background-image: linear-gradient(to bottom, #5f076e, #80358e);
+  margin-bottom: 2%;
+}
+#divFoto {
+  background-color: #ebdbc7;
+  border-radius: 20px 3px;
+  border-style: inset;
+  border-width: 2.5px;
+  border-color: #895e26;
+  padding: 1%;
+}
+#file-preview {
+  width: 100%;
+  padding-top: 5%;
+}
+.divCampos {
+  padding-top: 1%;
+  min-height: 100px;
+}

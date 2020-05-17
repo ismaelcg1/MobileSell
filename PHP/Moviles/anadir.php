@@ -145,7 +145,9 @@ mysqli_close($con);
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="mis_moviles.php">Mis móviles</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item">Añadir</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="eliminar.php">Eliminar</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="consultar_comprar.php">Consultar/Comprar</a>
@@ -351,19 +353,15 @@ mysqli_close($con);
         </div>
     </div>
 
-
     </div>
     </form>
 
   </div>
-
-
 
   <div class="container-fluid" id="contenedorFooter">
     <iframe src="../../HTML/footer.html" scrolling="no"></iframe>
   </div>
 
 </body>
-
 
 </html>

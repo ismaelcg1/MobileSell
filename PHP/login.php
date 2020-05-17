@@ -51,7 +51,7 @@
     // Recorremos el array de la query para guardar los datos en $resultado
     foreach ($conn->query($busqueda_usuario) as $indiceFila => $value){
       $resultado["u_email"] = $value["email"];
-      $resultado["u_pass"] = $value["email"];
+      $resultado["u_pass"] = $value["contrasena"];
       $resultado["u_uid"] = $value["uid"];
       $resultado["u_nombre"] = $value["nombre"];
       $resultado["u_apellidos"] = $value["apellidos"];

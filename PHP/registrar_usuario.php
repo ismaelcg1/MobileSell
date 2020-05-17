@@ -22,7 +22,7 @@
       $usuarioYaRegistrado = new Usuario($email_usuario,'','','','','','','');
       // Creamos una cookie para introducir el email y que no tenga que hacerlo el usuario
       setcookie("emailRegistradoAnteriormente", base64_encode(serialize($usuarioYaRegistrado)), time()+(60));
-      /*COOKIE que se llama emailRegistro, hay que codificar la información antes de pasarla
+      /*COOKIE que se llama emailRegistradoAnteriormente, hay que codificar la información antes de pasarla
       con base64_enconde, luego tenemos que serializar el objeto $usuarioYaRegistrado para que
       no se pierda la estructura del objeto, y por último asignamos un tiempo en segundos (si
       queremos que sea un día sólo tendríamos que poner 60*60*24 en lugar de 60)*/

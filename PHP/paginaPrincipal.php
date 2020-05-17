@@ -83,7 +83,9 @@ function obtenerCantidadMoviles($uidUsuario, $tabla_moviles_usuario, $con){
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="Moviles/mis_moviles.php">Mis móviles</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="Moviles/anadir.php">Añadir</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="Moviles/eliminar.php">Eliminar</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="Moviles/consultar_comprar.php">Consultar/Comprar</a>
