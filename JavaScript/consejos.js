@@ -7,7 +7,7 @@ function obtenerConsejo() {
     [2, "Una cámara con mayor número de megapixeles no significa que haga mejores fotos. Mejoraría la resolución (tamaño imagen) no la calidad de las fotos."],
     [3, "Cuanta más RAM tenga un dispotivo podremos utilizar más aplicaciones a la vez, sin que por ello se vea afectado el rendimiento del dispositivo."],
     [4, "Una pantalla con mayor resolución se verá mejor, pero hay que tener en cuenta el tamaño del dispotivo pues ofrecerá ppp (pixeles por pulgada) diferentes."],
-    [5, "La batería se mide en miliamperios (mA), pero un mayor número no tiene porque indicar mayor duración, tenemos que tener en cuenta la optimización global, tamaño de pantalla, resolución..."],
+    [5, "La batería se mide en miliamperios por hora (mAh), pero un mayor número no tiene porque indicar mayor duración, tenemos que tener en cuenta la optimización global, tamaño de pantalla, resolución..."],
     [6, "Debemos tener en cuenta el tipo de conector que lleva nuestro dispositvo, en móviles Android, USB tipo C sería el más moderno y soporta velocidades mayores."],
     [7, "Si somos un poco despistados y siempre tenemos el móvil bajo de batería o simplemente no tenemos tiempo, debemos valorar que tenga carga rápida. Hay dispositivos que en 30 minutos cargan hasta un 50%."],
     [8, "¿Sueles llevarte el móvil a la playa, la piscina o la ducha? Observa que tenga certificado de resistencia al agua, te ahorra más de un disgusto."],

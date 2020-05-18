@@ -173,8 +173,11 @@ mysqli_close($con);
             // Hacemos un bucle que recorrerá todas las posiciones, sabiendo los moviles que tenemos
             for ($a = 0; $a < $contadorMoviles; $a++) {
               echo '
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3 movilIndividual justify-content-center">
-                    <img class="col-12 imagenMovil" src="'?> <?php echo $array_ruta_foto[$a] ?> <?php echo '">
+              <div class="col-10 col-sm-6 col-md-4 col-lg-3 movilIndividual justify-content-center">
+                    <img onclick="verProducto('?>
+                      <?php echo $array_imei[$a] ?>
+                      <?php echo ')" class="col-12 imagenMovil" src="'?>
+                       <?php echo $array_ruta_foto[$a] ?> <?php echo '">
                   <hr class="separador"/>
                     <h4 class="m-auto text-center">'?> <?php echo $array_marcas[$a] ?> <?php echo '</h4>
                     <h6 class="m-auto text-center">'?> <?php echo $array_modelos[$a]?> <?php echo '</h6>

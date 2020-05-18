@@ -27,9 +27,11 @@ if ($count == 1) {
     alert('Error al mostrar datos del móvil.');
     window.location.href='$pagina_mis_moviles';
     </script>";
+    mysqli_close($con);
     exit;
   }
   $venta = comprobarEstadoVenta($con, $imei, $tabla_moviles_usuarios);
+  mysqli_close($con);
 }
 
 

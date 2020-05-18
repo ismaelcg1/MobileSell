@@ -196,7 +196,7 @@ mysqli_close($con);
     <form enctype="multipart/form-data" id="formularioAddMovil" name="formularioAddMovil" action="anadir.php" method="post">
 
     <div class="form-group row">
-      <div class="col-11 col-sm-3 m-auto" id="divFoto">
+      <div class="col-11 col-sm-9 col-md-4 col-lg-3 m-auto" id="divFoto">
         <label for="ingresar_foto" class="col-12 col-form-label font-weight-bold">Foto del producto (Sólo 1 foto):</label>
         <div class="col-12">
           <input type="file" name="ingresar_foto" id="ingresar_foto" accept="image/*" class="form-control">
@@ -208,7 +208,7 @@ mysqli_close($con);
         </div>
       </div>
 
-    <div class="col-12 col-sm-8">
+    <div class="col-12 col-md-8 col-lg-8">
       <!-- Controlamos errores principales -->
       <div class="form-group row errores" >
 

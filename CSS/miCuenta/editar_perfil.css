@@ -1,5 +1,5 @@
 #contenedorVerPerfil {
-  min-height: 940px;
+  min-height: 990px;
 }
 .editar{
   opacity: 0.9;
@@ -20,7 +20,7 @@
 }
 @media (min-width: 768px) {
   #contenedorVerPerfil {
-    min-height: 900px;
+    min-height: 920px;
   }
   .mensajesAdvertencia {
     margin-top: 0%;
