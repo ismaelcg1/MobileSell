@@ -1,0 +1,88 @@
+#contenedorDesarrollador {
+  /* Para buscadores que no soporten degradados */
+  background-color: #d8cbbb;
+  background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
+  margin: 0px;
+  min-height: 500px;
+  padding-bottom: 2%;
+}
+#tituloPagina{
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  color: white;
+  /*Color de fondo degradado*/
+  /* Para buscadores que no soporten degradados */
+  background-color: #5f076e;
+  background-image: linear-gradient(to bottom, #5f076e, #80358e);
+  margin-bottom: 2%;
+}
+#miImagen > img{
+  margin-left: auto;
+  margin-right: auto;
+  /*transform: rotate(90deg);*/
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: lista-personalizada;
+  margin: 0;
+}
+
+ol li {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 30px;
+  padding: 4px 0 10px 50px;
+  margin-bottom: 10px;
+  background:#f5f5f5;
+}
+
+ol li:before {
+  content: counter(lista-personalizada);
+  counter-increment: lista-personalizada;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  font-size: 1.3em;
+  padding: 8px 8px 8px 5px;
+  background: orangered;
+  color: white;
+  height: 45px;
+}
+
+#contenedorDatosDesarrollador{
+  margin-top: 3%;
+}
+
+#textoAplicacion{
+  margin-bottom: 5%;
+}
+
+#miImagen{
+  overflow:hidden;
+}
+#miImagen > img:hover{
+  filter: grayscale(80%);
+-webkit-transform:scale(1.1);transform:scale(1.1);
+}
+
+@media (max-width: 780px) {
+  #miImagen{
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+}
+
+@media (max-width: 1000px) {
+  #miNombre{
+    padding: 3%;
+  }
+}
+
+@media (min-width: 800px) {
+  #miNombre{
+    font-size: 2.1em;
+  }
+}

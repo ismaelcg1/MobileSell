@@ -3,11 +3,32 @@
   background-color: #d8cbbb;
   background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
   margin: 0px;
-  /*
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  */
-  min-height: 650px;
+  min-height: 800px;
+  padding-bottom: 2%;
+}
+#tituloPagina{
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  color: white;
+  /*Color de fondo degradado*/
+  /* Para buscadores que no soporten degradados */
+  background-color: #5f076e;
+  background-image: linear-gradient(to bottom, #5f076e, #80358e);
+  margin-bottom: 2%;
+}
+.textoExplicativo{
+  text-align: justify;
+  padding: 2%;
+  font-size: 1.05em;
+
+}
+.imagenExplicativa{
+  padding: 3.5%;
+}
+@media (min-width: 1000px) {
+  .textoExplicativo{
+    margin-left: 3.5%;
+    padding: 1.5%;
+    font-size: 1.1em;
+  }
 }
