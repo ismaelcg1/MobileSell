@@ -48,7 +48,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="../../PHP/Moviles/mis_moviles.php">Mis móviles</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../../PHP/Moviles/anadir.php">Añadir</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../../PHP/Moviles/eliminar.php">Eliminar</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../../PHP/Moviles/consultar_comprar.php">Consultar/Comprar</a>
@@ -88,9 +90,10 @@
 
 
   <div class="container-fluid" id="contenedorComoUsar">
+
     <div class="row" id="tituloPagina">
         <div class="col-sm-12 d-flex justify-content-center">
-            <h1 class="text-center">Como usar la aplicación web</h1>
+            <h1 class="text-center">Como usar la aplicación <i>Mobile Sell</i></h1>
         </div>
     </div>
 
@@ -99,7 +102,7 @@
         <h1 class="text-center m-auto">Login - Página de acceso</h1>
       </div>
       <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/login1.png" alt="Imagen Login">
+        <img src="../../img/login1.PNG" alt="Imagen Login">
       </div>
       <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
         <p class="m-auto textoExplicativo">En la página de acceso, también denominada página de Login, nos pide introducir nuestras credenciales, debemos introducir nuestro email y contraseña. Antes de acceder si hay algún tipo de error nos avisará señalando si está mal el email o la contraseña, tanto con un cuadro de texto, como con un icono de advertencia al lado del campo. En el caso de habernos registrado anteriormente, simplemente accederemos a la página principal pulsando el botón de Acceder. En el caso de que sea la primera vez que utilizamos la aplicación, debemos pulsar el enlace ¿No tienes cuenta? Crear una cuenta, el cual nos redirigirá a una página para crear nuestra cuenta.</p>
@@ -110,22 +113,26 @@
       <div class="col-12 d-flex align-items-center">
         <h1 class="text-center m-auto">Crear cuenta</h1>
       </div>
-      
-      <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
+      <!-- PARA QUE EN MOVIL SE VEA PRIMERO LA IMAGEN Y LUEGO EL TEXTO USAMOS LA CLASE ORDER -->
+      <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo order-2 order-lg-1">
         <p class="m-auto textoExplicativo">En la página de registro inicial, Crear mi cuenta, al principio nos aparecerá el logo/imagen de la aplicación, si la pulsamos podemos acceder a la página de Login citada anteriormente. Pero si estamos aquí, nuestra posible intención será registrarnos como usuario. Debemos rellenar los campos que nos indican (nombre, apellidos, fecha de nacimiento, correo electrónico, contraseña, repita contraseña, ciudad), y pulsar para aceptar los términos y condiciones de uso. En el caso de que algún campo se nos haya pasado, se nos avisará igualmente, en la parte superior, justo encima de donde podemos introducir el primer campo. Si rellenamos la información y hemos introducido un campo de forma incorrecta (pero una vez que se han rellenado todos los campos, sino nos indicará que hay campos vacíos), la aplicación también nos avisará sobre qué campo está erróneo, tanto pintando los bordes del recuadro que contienen el error de color rojo, como mostrando un texto arriba (donde nos indicaba el error de campos vacíos), con más información sobre a qué se debe dicho error.
         </p>
       </div>
-      <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/crearCuenta1.png" alt="Imagen crear cuenta">
+      <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa order-1 order-lg-2">
+        <img src="../../img/crearCuenta1.PNG" alt="Imagen crear cuenta">
       </div>
-      
+
+    </div>
+
+    <div class="row contenedorDatos">
+
       <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/crearCuenta2.png" alt="Imagen crear cuenta">
+        <img src="../../img/crearCuenta2.PNG" alt="Imagen crear cuenta">
       </div>
       <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
-        <p class="m-auto textoExplicativo">
-        	En el caso de que la información contenida sea correcta, el borde del recuadro de la información se pondrá de color verde. Además, en la parte inferior de dicha página tenemos un botón Limpiar, el cual borra todos los campos y el botón Crear cuenta, el cual una vez sean todos los campos correctos nos creará un perfil, nos redirigirá a una página en la cual aparece un enlace que podemos pulsar para iniciar sesión.
-        </p>
+          <p class="m-auto textoExplicativo">
+          	En el caso de que la información contenida sea correcta, el borde del recuadro de la información se pondrá de color verde. Además, en la parte inferior de dicha página tenemos un botón Limpiar, el cual borra todos los campos y el botón Crear cuenta, el cual una vez sean todos los campos correctos nos creará un perfil, nos redirigirá a una página en la cual aparece un enlace que podemos pulsar para iniciar sesión.
+          </p>
        </div>
 
     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
@@ -134,7 +141,7 @@
         </p>
       </div>
       <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/crearCuenta3.png" alt="Imagen Crear cuenta">
+        <img src="../../img/crearCuenta3.PNG" alt="Imagen Crear cuenta">
       </div>
 
   </div>
@@ -148,7 +155,7 @@
       </div>
 
       <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/inicio.png" alt="Imagen Inicio">
+        <img src="../../img/inicio.PNG" alt="Imagen Inicio">
       </div>
 
       <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
@@ -164,114 +171,110 @@
 
       <div class="col-12 d-flex align-items-center">
         <h1 class="text-center m-auto">Móviles - Mis móviles</h1>
-      </div>    
+      </div>
 
-      <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
+      <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo order-2 order-lg-1">
         <p class="m-auto textoExplicativo">
         	Ahora pasamos a la sección del menú Móviles, en la cual tenemos 4 opciones, que son Mis móviles, Añadir, Eliminar y Consultar/Comprar. Vamos a ir dando la explicación en el mismo orden que se encuentran las subsecciones del menú. <br>
-			Página Mis móviles. En el caso de que sea la primera vez que ingresamos en la aplicación, dicha página únicamente nos mostrará un mensaje, que nos indicará que no hemos subido aún ningún móvil. 
+			Página Mis móviles. En el caso de que sea la primera vez que ingresamos en la aplicación, dicha página únicamente nos mostrará un mensaje, que nos indicará que no hemos subido aún ningún móvil.
         </p>
       </div>
 
-      <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/misMoviles0.png" alt="Imagen mis moviles">
+      <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa order-1 order-lg-2">
+        <img src="../../img/misMoviles0.PNG" alt="Imagen mis moviles">
       </div>
 
-      <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa">
-        <img src="../../img/misMoviles.png" alt="Imagen mis moviles">
+      <div class="col-12 col-lg-6 d-flex align-items-center imagenExplicativa order-3">
+        <img src="../../img/misMoviles.PNG" alt="Imagen mis moviles">
       </div>
-      
-      <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo">
+
+      <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo order-4">
         <p class="m-auto textoExplicativo">
-        	En el caso de que hayamos añadido algún móvil, dicha página nos devolverá todos los móviles que hemos introducido, mostrando una foto del dispositivo, y justo debajo, se indica la marca, el modelo y la capacidad de memoria interna de dicho dispositivo. Podemos acceder a la información completa de dicho dispositivo móvil, bien pulsando en el botón Ver móvil, o bien, pulsando la foto del dispositivo del cual queremos obtener más datos. 
+        	En el caso de que hayamos añadido algún móvil, dicha página nos devolverá todos los móviles que hemos introducido, mostrando una foto del dispositivo, y justo debajo, se indica la marca, el modelo y la capacidad de memoria interna de dicho dispositivo. Podemos acceder a la información completa de dicho dispositivo móvil, bien pulsando en el botón Ver móvil, o bien, pulsando la foto del dispositivo del cual queremos obtener más datos.
         </p>
       </div>
-      
+
   </div>
 
 
-  <div class="row contenedorDatos">      
+  <div class="row contenedorDatos">
 
-	 <div class="col-12 d-flex align-items-center">
+	  <div class="col-12 d-flex align-items-center">
         <h1 class="text-center m-auto">Móviles - Ver móvil</h1>
-     </div>
+    </div>
 
-	<div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
+	  <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2 order-lg-1">
         <p class="m-auto textoExplicativo">
         	La acción de pulsar sobre la imagen del dispositivo o pulsar el botón 'ver Móvil' nos llevará a una página denominada Ver móvil, la cual nos mostrará los datos relacionados con el dispositivo en cuestión, tales como una foto, la marca, el modelo, la memoria interna (en gigabytes), la batería (en miliamperios hora), la memoria RAM (en gigabytes), los mega-píxeles de la cámara (expresan la resolución de la imagen), el precio del dispositivo (en euros €), el color del dispositivo (por si hubiese dudas con la foto que se ha subido), el estado del producto (nuevo, seminuevo, reacondicionado o segunda mano) y nos indicará también si el producto lo hemos puesto a la venta. Dicha acción se realiza con el ‘cuadradito’ (checkbox), si está marcado, lo que indicamos es que dicho dispositivo lo verán otros usuarios pulsando la opción Mis móviles del menú, subsección Consultar/Comprar.
         </p>
     </div>
 
-      <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/verMovil.png" alt="Imagen ver móvil">
+      <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1 order-lg-2">
+        <img src="../../img/verMovil.PNG" alt="Imagen ver móvil">
       </div>
 
-      <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/verMovil1.png" alt="Imagen ver móvil">
+      <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-3">
+        <img src="../../img/verMovil1.PNG" alt="Imagen ver móvil">
       </div>
 
-	<div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
-        <p class="m-auto textoExplicativo">
-        	Por último, en la parte inferior de esta página (estamos en Ver móvil), nos redirigirá a la página en la que podíamos ver todos los móviles que nosotros habíamos subido, es decir, la página de Mis móviles. 
-        </p>
+  	<div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-4">
+          <p class="m-auto textoExplicativo">
+          	Por último, en la parte inferior de esta página (estamos en Ver móvil), nos redirigirá a la página en la que podíamos ver todos los móviles que nosotros habíamos subido, es decir, la página de Mis móviles.
+          </p>
+      </div>
+
     </div>
 
-  </div>
-
-
-
-
-
-  <div class="row contenedorDatos">      
+  <div class="row contenedorDatos">
 
 	 <div class="col-12 d-flex align-items-center">
         <h1 class="text-center m-auto">Móviles - Añadir</h1>
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2 order-lg-1">
         <p class="m-auto textoExplicativo">
         	En la página Añadir móvil, como su propio nombre indica, podemos añadir un móvil. Para ello tenemos que introducir o rellenar los campos que se nos indican. <br>
         	A la izquierda (o arriba en el caso de que estemos viendo la página con móvil o Tablet), tenemos la opción de añadir una foto, simplemente damos al botón y si es en ordenador nos permite subir una imagen (se comprobará que es una imagen con los formatos más utilizados) o si utilizamos un dispositivo móvil o Tablet, nos permitirá tanto escoger una foto de nuestra galería, como echar una foto nosotros mismos. Una vez se haya seleccionado o echado la foto, se nos mostrará una miniatura con dicha imagen justo debajo del campo ‘Foto del producto’.
         </p>
     </div>
 
-    <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/anadirMovil1.png" alt="Imagen añadir móvil">
+    <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1 order-lg-2">
+        <img src="../../img/anadirMovil1.PNG" alt="Imagen añadir móvil">
     </div>
 
-    <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/anadirMovil.png" alt="Imagen añadir móvil">
+    <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-3">
+        <img src="../../img/anadirMovil.PNG" alt="Imagen añadir móvil">
     </div>
 
-	<div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
+	<div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-4">
         <p class="m-auto textoExplicativo">
         	Luego rellenamos los campos marca, modelo, memoria interna, batería, RAM… Mientras vamos escribiendo, se nos avisará con un texto justo debajo del menú, avisándonos de que el campo no es correcto. En el caso de que sea correcto no se nos mostrará nada. También y para que no haya datos incorrectos a la hora de subirse al servidor, se comprueba cuando pulsamos el botón Subir producto, si se han rellenado todos los campos de manera correcta, subiendo en este caso el móvil e indicándonoslo con un mensaje (¡Todo correcto!) en la parte superior.
         </p>
     </div>
 	</div>
 
-	<div class="row contenedorDatos">      
+	<div class="row contenedorDatos">
 
-	 <div class="col-12 d-flex align-items-center">
-        <h1 class="text-center m-auto">Móviles - Mi cuenta</h1>
+	   <div class="col-12 d-flex align-items-center">
+        <h1 class="text-center m-auto">Mi cuenta</h1>
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2 order-lg-1">
         <p class="m-auto textoExplicativo">
         	Vamos a pasar a la siguiente sección del menú, Mi cuenta. En dicha sección, tenemos 3 opciones las cuales son: ver perfil, editar perfil y cerrar sesión. Si le damos a la opción de cerrar sesión, hará lo que nos imaginamos, nos redirigirá a la página de Login (además de borrar las cookies y la sesión actual).<br>
-			En la página ver perfil, únicamente se nos mostrarán nuestros datos, como nombre, apellidos, fecha de nacimiento, email y ciudad. 
+			En la página ver perfil, únicamente se nos mostrarán nuestros datos, como nombre, apellidos, fecha de nacimiento, email y ciudad.
         </p>
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/verPerfil.png" alt="Imagen ver perfil">
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1 order-lg-2">
+        <img src="../../img/verPerfil.PNG" alt="Imagen ver perfil">
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/editarPerfil1.png" alt="Imagen editar perfil">
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-4 order-lg-3">
+        <img src="../../img/editarPerfil1.PNG" alt="Imagen editar perfil">
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-3 order-lg-4">
         <p class="m-auto textoExplicativo">
         	Pero los campos no podremos editarlos, para ello nos vamos a la opción editar perfil, que es igual a la página de ver perfil, pero está vez, si nos fijamos vemos a la derecha de los campos un icono de un lápiz, pulsando dicho icono, nos permitirá modificar el campo que está justo a su izquierda, para dejar constancia de ello, es decir guardar dichos cambios, solamente tenemos que pulsar el botón inferior Guardar cambios. Si por alguna cuestión introducimos un campo mal, no os preocupéis, la aplicación nos avisará con un mensaje justo encima del botón, indicando que campo está mal y el por qué.
         </p>
@@ -279,21 +282,24 @@
  	</div>
 
 
-	<div class="row contenedorDatos">      
+	<div class="row contenedorDatos">
 
 	 <div class="col-12 d-flex align-items-center">
-        <h1 class="text-center m-auto">Móviles - Ayuda</h1>
+        <h1 class="text-center m-auto">Ayuda</h1>
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto">
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2 order-lg-1">
         <p class="m-auto textoExplicativo">
-        	Continuando con la última sección del menú, Ayuda, al pulsar dicha opción, vemos que nos encontramos con 2 opciones, Como usar y Desarrollador. La página actual es Como usar, así que no creo que hay falta que indique lo que se muestra en dicha página :P . <br>
+        	Continuando con la última sección del menú, Ayuda, al pulsar dicha opción, vemos que nos encontramos con 2 opciones, Como usar y Desarrollador. La página actual es Como usar, así que no creo que hay falta que indique lo que se muestra en esta misma página <img src="../../Iconos/lenguaFuera.PNG">.<br>
         	Por último, la página Desarrollador, que nos muestra una imagen personal, información sobre mi nombre completo y una lista de las tecnologías utilizadas para llevar a cabo la implementación de esta aplicación web.
         </p>
      </div>
 
-	 <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto">
-        <img src="../../img/desarrollador1.png" alt="Imagen desarrollador">
+	   <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1 order-lg-2 container">
+        <img class="desarrollador" src="../../img/desarrollador1.PNG" alt="Imagen desarrollador">
+        <div class="overlay">
+          <div class="text">Captura realizada en Tablet.<br> Opción Ayuda -> Desarrollador.</div>
+        </div>
      </div>
 
  	</div>

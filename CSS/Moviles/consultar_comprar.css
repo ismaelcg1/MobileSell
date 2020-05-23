@@ -1,4 +1,4 @@
-#contenedorMisMoviles {
+#contenedorConsultarComprar {
   /* Para buscadores que no soporten degradados */
   background-color: #d8cbbb;
   background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
@@ -22,21 +22,21 @@
   margin-bottom: 1%;
   padding: 3%;
   background-color: #efddc8;
-  border-radius: 26px;
+  border-radius: 40px;
   margin-left: auto;
   margin-right: auto;
 }
 .imagenMovil {
   height: 280px;
   cursor: pointer;
-  margin-top: 2%;
+  margin-top: 5%;
 }
 .imagenMovil:hover {
-  scale:1.1;
-  -webkit-transform: rotate(-2deg);
-  -moz-transform: rotate(-2deg);
-  -ms-transform: rotate(-2deg);
-  transform: rotate(-2deg);
+  scale:1.15;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
 }
 .divNoMovil {
   padding-top: 10%;
@@ -66,6 +66,13 @@
     padding-top: 0%;
   }
 }
+.subidoPor{
+  padding-top: 3%;
+  padding-bottom: 8%;
+  font-size: 1.2em;
+  color: #4c0359;
+}
+
 @media (min-width: 570px) {
   .movilIndividual {
     border-left-style: solid;
