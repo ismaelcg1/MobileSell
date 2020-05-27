@@ -10,3 +10,12 @@ function regresarAtras() {
   var paginaMisMoviles = "http://localhost/Mobile_Sell/PHP/Moviles/consultar_comprar.php";
   window.location = paginaMisMoviles;
 }
+
+function quiereComprar() {
+    // Enviamos los datos del formulario
+    var formulario = document.forms['formularioMovilVenta'];
+    if (!formulario) {
+      formulario = document.formularioMovilVenta;
+    }
+    formulario.submit();
+}

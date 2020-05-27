@@ -243,6 +243,7 @@ function comprobarCampos() {
         if (!formulario) {
           formulario = document.formularioAddMovil;
         }
+        alert("Espere un momento mientras se sube su móvil. Una vez subido, se le notificará. ¡Gracias!");
         formulario.submit();
       }
 }
@@ -262,7 +263,7 @@ function verficarCheckBox() {
   if (checkboxVenta.checked == true) {
     checkboxVenta.value = 1;
   } else {
-    checkboxVenta.value = 0;    
+    checkboxVenta.value = 0;
   }
 }
 

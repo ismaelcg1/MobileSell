@@ -67,6 +67,8 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../../PHP/miCuenta/editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../../PHP/miCuenta/mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../../PHP/miCuenta/cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>
@@ -253,31 +255,130 @@
     </div>
 	</div>
 
+
+  <div class="row contenedorDatos">
+
+   <div class="col-12 d-flex align-items-center">
+        <h1 class="text-center m-auto">Móviles - Eliminar</h1>
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2 order-lg-1">
+        <p class="m-auto textoExplicativo">
+          En la página Eliminar, nos saldrán nuestros móviles, igual que en la sección Mis móviles, pero con la diferencia
+          de que está vez tenemos un botón inferior, Eliminar Móvil, que nos permitirá eliminar el móvil seleccionado,
+          se nos notificará con un mensaje superior, de acuerdo con la estética de la aplicación.
+        </p>
+    </div>
+
+    <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1 order-lg-2">
+        <img src="../../img/eliminar_movil.PNG" alt="Imagen eliminar móvil">
+    </div>
+  </div>
+
+
+
+  <div class="row contenedorDatos">
+
+   <div class="col-12 d-flex align-items-center">
+        <h1 class="text-center m-auto">Móviles - Consultar/Comprar</h1>
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1">
+         <img src="../../img/ver_movil_compra.PNG" alt="Imagen ver móvil compra">
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2">
+        <p class="m-auto textoExplicativo">
+          En la página Consultar/Comprar, vemos una lista con los móviles que otros usuarios han puesto a la venta (se hace cuando añades el móvil,
+          marcando el checkbox que indicaba si queríamos poner el producto en venta). Si pulsamos en la imagen del
+          móvil que queremos ver, o bien en el botón inferior Ver móvil, entraremos a ver el producto en venta,
+          la página es casi similar a ver producto, descrita anteriormente (sección ‘Mis móviles’), pero con la
+          diferencia de que nos indica el nombre del vendedor y la provincia en la que se encuentra. Aquí, tenemos 2
+          botones, uno para volver hacia atrás y otro para indicar que queremos comprar el móvil, aparece como ¡Lo quiero!
+        </p>
+    </div>
+
+    <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-4 order-lg-3">
+       <p class="m-auto textoExplicativo">
+         Al pulsar dicho botón, nos iremos a la página Enviar mensaje, en la cual aparece un campo para introducir el mensaje
+          que queremos que le llegue al vendedor. Tenemos únicamente 2 botones, los cuales son Limpiar mensaje y Enviar mensaje,
+          ambos realizan la función que indican.
+       </p>
+   </div>
+
+   <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-3 order-lg-4">
+       <img src="../../img/enviar_mensaje.PNG" alt="Imagen consultar/comprar móvil">
+   </div>
+
+  </div>
+
 	<div class="row contenedorDatos">
 
 	   <div class="col-12 d-flex align-items-center">
         <h1 class="text-center m-auto">Mi cuenta</h1>
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2 order-lg-1">
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-2">
         <p class="m-auto textoExplicativo">
-        	Vamos a pasar a la siguiente sección del menú, Mi cuenta. En dicha sección, tenemos 3 opciones las cuales son: ver perfil, editar perfil y cerrar sesión. Si le damos a la opción de cerrar sesión, hará lo que nos imaginamos, nos redirigirá a la página de Login (además de borrar las cookies y la sesión actual).<br>
-			En la página ver perfil, únicamente se nos mostrarán nuestros datos, como nombre, apellidos, fecha de nacimiento, email y ciudad.
+        	Vamos a pasar a la siguiente sección del menú, Mi cuenta. En dicha sección, tenemos 4 opciones las cuales son: ver perfil,
+          editar perfil, mensajes recibidos y cerrar sesión. Si le damos a la opción de cerrar sesión, hará lo que nos imaginamos,
+          nos redirigirá a la página de Login (además de borrar las cookies y la sesión actual).<br>
+			    En la página ver perfil, únicamente se nos mostrarán nuestros datos, como nombre, apellidos, fecha de nacimiento, email y ciudad.
         </p>
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1 order-lg-2">
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-1">
         <img src="../../img/verPerfil.PNG" alt="Imagen ver perfil">
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-4 order-lg-3">
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-3 order-lg-4">
         <img src="../../img/editarPerfil1.PNG" alt="Imagen editar perfil">
      </div>
 
-     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-3 order-lg-4">
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-4 order-lg-3">
         <p class="m-auto textoExplicativo">
         	Pero los campos no podremos editarlos, para ello nos vamos a la opción editar perfil, que es igual a la página de ver perfil, pero está vez, si nos fijamos vemos a la derecha de los campos un icono de un lápiz, pulsando dicho icono, nos permitirá modificar el campo que está justo a su izquierda, para dejar constancia de ello, es decir guardar dichos cambios, solamente tenemos que pulsar el botón inferior Guardar cambios. Si por alguna cuestión introducimos un campo mal, no os preocupéis, la aplicación nos avisará con un mensaje justo encima del botón, indicando que campo está mal y el por qué.
         </p>
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-6">
+        <p class="m-auto textoExplicativo">
+        	Continuando con la 3 opción, Mensajes recibidos, en cuya subsección, tenemos a su vez 3 subopciones más, las cuales son:
+          ‘No leídos’, ‘Leídos’ y ‘Compras’. En la opción ‘No leídos’ se nos muestra todos los mensajes que no hemos leído.
+        </p>
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-5">
+        <img src="../../img/mensajes_no_leidos.PNG" alt="Imagen ver mensajes recibidos">
+     </div>
+
+
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-7 order-lg-8">
+        <img src="../../img/ver_mensaje.PNG" alt="Imagen ver mensaje">
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-8 order-lg-7">
+        <p class="m-auto textoExplicativo">
+        	Al darle al icono mensaje, entraremos dentro del mensaje, obteniendo los datos del móvil al cual hace referencia, tales
+          como la marca, el modelo y una foto. También se nos mostrará el nombre del comprador interesado, el precio que le habíamos
+           puesto nosotros de compra, la fecha de la solicitud y el mensaje que nos ha enviado dicho comprador. Tenemos 3 botones,
+           uno para marcar como leído, el cual realizará dicha acción, volver a mensajes recibidos (nos llevará a mensajes no leídos)
+           y vender móvil, en el cual se nos borrará el móvil entendiendo que vamos a vender el móvil a dicho comprador, eliminando
+           también dicho mensaje y enviándole un mensaje al comprador para que se ponga en contacto con nosotros a través de nuestro email.
+        </p>
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center textoExplicativo m-auto order-10">
+        <p class="m-auto textoExplicativo">
+        	Si dicho comprador se va a la subopción, compras, dentro de mensajes, se encontrará lo que muestra la captura de pantalla anterior,
+          indicando el nombre del vendedor, los datos del producto (foto, marca, modelo y precio), la fecha de la solicitud que nosotros enviemos
+          y la dirección de email con la cual podremos contactar con el vendedor para acordar el trato. El botón volver a mensajes recibidos nos
+          llevará a mensajes no leídos.
+        </p>
+     </div>
+
+     <div class="col-12 col-lg-5 d-flex align-items-center imagenExplicativa m-auto order-9">
+        <img src="../../img/ver_mensaje_compra.PNG" alt="Imagen ver mensajes compra">
      </div>
  	</div>
 

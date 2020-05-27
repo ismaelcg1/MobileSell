@@ -86,6 +86,8 @@ $tabla_usuarios = 'usuarios';
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>

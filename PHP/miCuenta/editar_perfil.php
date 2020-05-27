@@ -134,6 +134,8 @@ if (isset($_POST["nombre"])) {
             <div class="dropdown-divider"></div>
             <a class="dropdown-item">Editar perfil</a>
             <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+              <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>
@@ -293,7 +295,7 @@ if (isset($_POST["nombre"])) {
         <div class="col-1 col-sm-6"></div>
         <div class="col-10 col-sm-5 col-md-3" id="DivBtnGuardarCambios">
           <button type="button" id="btnGuardarCambios" onclick="comprobarDatos()"
-           class="btn btn-dark btn-block" disabled>Guardar cambios</button>
+           class="btn-lg btn-outline-dark btn-block" disabled>Guardar cambios</button>
         </div>
         <div class="col-1 col-sm-3"></div>
       </div>

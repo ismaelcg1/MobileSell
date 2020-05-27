@@ -144,6 +144,8 @@ if ($count == 1) {
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../miCuenta/editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../miCuenta/mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../miCuenta/cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>
@@ -165,7 +167,7 @@ if ($count == 1) {
   </nav>
 
 
-  <div class="container-fluid" id="contenedorVerMovil">
+<div class="container-fluid" id="contenedorVerMovil">
 
     <div class="row" id="tituloPagina">
         <div class="col-sm-12 d-flex justify-content-center">
@@ -275,7 +277,7 @@ if ($count == 1) {
             </div>
             <div class="col-12 col-md-6 mr-auto divCampos" id="divBoton">
               <br>
-                <button type="button" onclick="regresarAtras()" class="btn btn-dark btn-block">Volver atrás</button>
+                <button type="button" onclick="regresarAtras()" class="btn-lg btn-outline-secondary btn-block">Volver atrás</button>
             </div>
         </div>
     </div>

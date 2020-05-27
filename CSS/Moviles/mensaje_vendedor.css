@@ -1,0 +1,32 @@
+#contenedorEnviarMensaje {
+  /* Para buscadores que no soporten degradados */
+  background-color: #d8cbbb;
+  background-image: linear-gradient(to bottom, #d8cbbb, #f5eee5);
+  margin: 0px;
+  min-height: 800px;
+  padding-bottom: 2%;
+}
+#tituloPagina{
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  color: white;
+  /*Color de fondo degradado*/
+  /* Para buscadores que no soporten degradados */
+  background-color: #5f076e;
+  background-image: linear-gradient(to bottom, #5f076e, #80358e);
+  margin-bottom: 2%;
+}
+.divCampos {
+  padding-top: 1%;
+  min-height: 100px;
+}
+#ingresar_mensaje{
+  font-size: 1.1em;
+  font-family: sans-serif;
+}
+
+@media screen and (min-width: 690px) {
+  h3 {
+    margin-left: 5%;
+  }
+}

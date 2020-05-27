@@ -164,6 +164,8 @@ mysqli_close($con);
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../miCuenta/editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../miCuenta/mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../miCuenta/cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>
@@ -348,7 +350,7 @@ mysqli_close($con);
             </div>
             <div class="col-12 col-md-6 mr-auto divCampos" id="divBoton">
               <br>
-                <button type="button" onclick="comprobarCampos()" class="btn btn-dark btn-block">Subir producto</button>
+                <button type="button" onclick="comprobarCampos()" class="btn-lg btn-outline-dark btn-block">Subir producto</button>
             </div>
         </div>
     </div>

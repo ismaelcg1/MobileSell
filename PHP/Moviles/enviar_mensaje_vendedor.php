@@ -1,56 +1,55 @@
 <?php
-// Requerimos el fichero para que sino está se interrumpa el flujo de ejecucion
-require_once '../conexion.php';
-require_once 'movil.php';
-require_once '../usuario.php';
-
-session_start();
-// Variables que necesitamos:
-$hay_moviles = false; // Para ver si se han añadido móviles o no.
-$id_usuario;
-$array_imei;
-$array_marcas;
-$array_modelos;
-$array_memoria_interna;
-$array_ruta_foto;
-$contadorMoviles = 0;
-// Comprobamos que la sesión existe:
-if (isset($_SESSION['usuarioActual']) ) {
-  $usuario = $_SESSION['usuarioActual'];
-  $id_usuario = $usuario->get_uid();
-}
-// Tablas BBDD
-$tabla_moviles = 'moviles';
-$tabla_moviles_usuarios = 'moviles_usuarios';
-
-$obtenerImei = "SELECT imei_movil FROM $tabla_moviles_usuarios WHERE id_usuario = '$id_usuario'";
-
-
-$queryObtenerImei = $con->query($obtenerImei);
-// Controlamos que la consulta tenga resultados
-if ($queryObtenerImei->num_rows > 0) {
-  $hay_moviles = true;
-  while($row = $queryObtenerImei->fetch_assoc()) {
-    $array_imei[$contadorMoviles] = $row['imei_movil'];
-    $contadorMoviles++;
+  require_once '../conexion.php';
+  require_once '../usuario.php';
+  // Inicializamos sesión y cogemos el usuario actual:
+  session_start();
+  // Variables a utilizar posteriormente
+  $usuarioCreado = false;
+  $usuario;
+  $uidUsuarioComprador;
+  $uidVendedor;
+  $imeiMovil;
+  $mensaje;
+  $VenimosEnviar = false;
+  // Comprobamos que la sesión existe:
+  if (isset($_SESSION['usuarioActual']) ) {
+    $usuario = $_SESSION['usuarioActual'];
+    $usuarioCreado = true;
+    $uidUsuarioComprador = $usuario->get_uid();
+  }
+  // Ahora cogemos por get, el usuario vendedor y el imei del movil
+  if (isset($_POST['idV']) && isset($_POST['im'])) {
+    $imeiMovil = $_POST['im'];
+    $uidVendedor = $_POST['idV'];
   }
 
-// Ahora cogemos los datos que nos interesan de los moviles
-
-for ($pos = 0; $pos < $contadorMoviles; $pos++) {
-  $obtenerDatosMoviles = "SELECT marca, modelo, memoria_interna, ruta_foto FROM $tabla_moviles WHERE imei = '$array_imei[$pos]'";
-  $queryObtenerDatosMoviles = $con->query($obtenerDatosMoviles);
-
-    // Guardamos los datos en el array correspondiente
-    while($row = $queryObtenerDatosMoviles->fetch_assoc()) {
-      $array_marcas[$pos] = $row['marca'];
-      $array_modelos[$pos] = $row['modelo'];
-      $array_memoria_interna[$pos] = $row['memoria_interna'];
-      $array_ruta_foto[$pos]= $row['ruta_foto'];
-    }
+  // Ahora comprobamos si se ha enviado el mensaje
+  if (isset($_POST['mensaje'])) {
+    $mensaje = $_POST['mensaje'];
+    // Si le hemos dado a enviar mensaje, insertamos los datos:
+    $VenimosEnviar = enviarMensaje($con, $uidUsuarioComprador, $uidVendedor, $imeiMovil, $mensaje);
   }
-}
-mysqli_close($con);
+
+
+
+  function enviarMensaje($conn, $idC, $idV, $imei, $mensaje) {
+    $todoCorrecto = false;
+    $tabla_historiales_ventas_mensajes = 'historiales_ventas_mensajes';
+    $fecha_peticion = date('Y-m-d');
+
+    $queryInsertarMensaje = "INSERT INTO $tabla_historiales_ventas_mensajes (id_usuario_comprador, id_usuario_vendedor, imei_movil, fecha_peticion, mensaje_leido, movil_vendido, mensaje)
+      VALUES ('$idC', '$idV', '$imei', '$fecha_peticion', FALSE, FALSE, '$mensaje')";
+
+      $insertarMensaje = $conn->query($queryInsertarMensaje);
+
+      if ($insertarMensaje) { // Si el resultado que devuelve es true...
+        $todoCorrecto = true;
+      } else {
+        $todoCorrecto = false;
+      }
+      return $todoCorrecto;
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -59,9 +58,9 @@ mysqli_close($con);
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width" >
-  <title>Mobile Sell - Mis moviles</title>
+  <title>Mobile Sell - Enviar mensaje</title>
   <style>
-    @import "../../CSS/Moviles/mis_moviles.css";
+    @import "../../CSS/Moviles/mensaje_vendedor.css";
     @import "../../CSS/estiloFooter.css";
     @import "../../CSS/menuPrincipal.css";
   </style>
@@ -73,7 +72,8 @@ mysqli_close($con);
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-  <script type="text/JavaScript" src="../../JavaScript/Moviles/mis_moviles.js"></script>
+  <script src="../../JavaScript/Moviles/enviar_mensaje.js"></script>
+
 </head>
 
 <body>
@@ -104,7 +104,7 @@ mysqli_close($con);
             <u>Móviles</u>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item">Mis móviles</a>
+            <a class="dropdown-item" href="mis_moviles.php">Mis móviles</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="anadir.php">Añadir</a>
             <div class="dropdown-divider"></div>
@@ -147,60 +147,68 @@ mysqli_close($con);
   </nav>
 
 
-  <div class="container-fluid" id="contenedorMisMoviles">
+  <div class="container-fluid" id="contenedorEnviarMensaje">
 
     <div class="row" id="tituloPagina">
         <div class="col-sm-12 d-flex justify-content-center">
-            <h1 class="text-center">Mis móviles</h1>
+            <h1 class="text-center">Enviar mensaje a vendedor</h1>
         </div>
     </div>
 
 
-    <div class="container">
-      <?php
-      if (!$hay_moviles) {
-        echo '
-        <div class="row justify-content-center m-auto divNoMovil">
-          <h2 class="col-12 col-md-8 m-auto text-center">No se ha añadido ningún móvil</h2>
-          <img class="col-8 col-sm-4 col-md-3 imagenNoMovil m-auto" src="../../Iconos/cara_triste.png">
-        </div>
-        ';
-      }
-      ?>
+    <form id="formularioMensaje" name="formularioMensaje" action="enviar_mensaje_vendedor.php" method="post">
 
-      <div class="row align-items-start">
+    <div class="col-12">
 
-        <?php
-          if ($hay_moviles) {
-            // Hacemos un bucle que recorrerá todas las posiciones, sabiendo los moviles que tenemos
-            for ($a = 0; $a < $contadorMoviles; $a++) {
-              echo '
-              <div class="col-10 col-sm-6 col-md-4 col-lg-3 movilIndividual justify-content-center">
-                    <img onclick="verProducto('?>
-                      <?php echo $array_imei[$a] ?>
-                      <?php echo ')" class="col-12 imagenMovil" src="'?>
-                       <?php echo $array_ruta_foto[$a] ?> <?php echo '">
-                  <hr class="separador"/>
-                    <h4 class="m-auto text-center">'?> <?php echo $array_marcas[$a] ?> <?php echo '</h4>
-                    <h6 class="m-auto text-center">'?> <?php echo $array_modelos[$a]?> <?php echo '</h6>
-                    <p class="m-auto text-center">'?>  <?php echo $array_memoria_interna[$a] ?> <?php echo ' GB</p>
-                    <button type="button" class="btn-lg btn-outline-dark btn-block botonVerMovil" onclick="verProducto('?>
-                      <?php echo $array_imei[$a] ?>
-                      <?php echo ')">Ver móvil</button>
-                  <hr class="separadorMoviles d-block d-sm-none"/>
+        <div class="form-group row">
+
+
+
+          <div class="col-12 col-md-10 m-auto">
+            <!-- Controlamos errores principales -->
+            <div class="form-group row" >
+
+              <?php
+              if ($VenimosEnviar) {
+                  echo '
+                    <div class="col-10 col-md-8 alert alert-primary alert-dismissible m-auto">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      <strong>¡Bien!</strong> Su mensaje se ha enviado correctamente.
+                    </div>
+                  ';
+              }
+              ?>
+            </div>
+          </div>
+
+            <div class="col-12 col-md-9 m-auto divCampos">
+              <label for="ingresar_mensaje" class="col-12 col-form-label font-weight-bold"><h3>Mensaje:</h3></label>
+              <div class="col-12 col-md-11 m-auto">
+                <textarea name="mensaje" class="form-control" id="mensaje" rows="10" cols="40" maxlength="400"
+                placeholder="¡Hola vendedor! Me gustaría comprar el móvil que tiene a la venta. Acepto sus condiciones. Un saludo."></textarea>
               </div>
-              ';
-            }
-          }
+            </div>
 
-        ?>
-            <!-- d-block d-sm-none con esta clase de Bootstrap hacemos que está linea
-             se muestre unicamente para tamaños de pantalla pequeños y se oculte para el resto
-           -->
-      </div>
+            <div class="col-10 col-md-4 m-auto divCampos">
+              <br>
+                <button type="reset" class="btn-lg btn-outline-info btn-block">Limpiar mensaje</button>
+            </div>
+
+            <!-- Para pasar parametros a la siguiente página -->
+            <input type="hidden" name="idV" value="<?php echo $uidVendedor ?>">
+            <input type="hidden" name="im" value="<?php echo $imeiMovil ?>">
+
+            <div class="col-10 col-md-4 m-auto divCampos">
+              <br>
+                <button type="button" onclick="enviarMensaje()" class="btn-lg btn-outline-dark btn-block">Enviar mensaje</button>
+            </div>
+
+        </div>
 
     </div>
+    </form>
 
+  </div>
 
   </div>
 

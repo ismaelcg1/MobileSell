@@ -141,6 +141,8 @@ mysqli_close($con);
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../miCuenta/editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="../miCuenta/mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="../miCuenta/cerrar_sesion.php">Cerrar sesión</a>
           </div>
         </li>
@@ -201,7 +203,7 @@ mysqli_close($con);
                     <h6 class="m-auto text-center">'?> <?php echo $array_modelos[$a]?> <?php echo '</h6>
                     <p class="m-auto text-center">'?>  <?php echo $array_memoria_interna[$a] ?> <?php echo ' GB</p>
                     <h5 class="m-auto text-center"><b>'?> <?php echo $array_precios[$a]?> <?php echo '€</b></h5>
-                    <button type="button" class="btn btn-dark btn-block botonVerMovil" onclick="verProducto('?>
+                    <button type="button" class="btn-lg btn-outline-dark btn-block botonVerMovil" onclick="verProducto('?>
                       <?php echo $array_imei[$a] ?>
                       <?php echo ')">Ver móvil</button>
                   <hr class="separadorMoviles d-block d-sm-none"/>

@@ -1,18 +1,12 @@
 <?php
-//$url= $_SERVER["REQUEST_URI"];
-//$urlCompleta = $host . $url;
 require_once '../conexion.php';
 require_once 'movil.php';
 //Variables que necesitamos:
 $imei;
-$uidVendedor;
 $arrayMovil = array();
-$nombreVendedor;
-$ciudadVendedor;
 $tabla_moviles = 'moviles';
 $tabla_moviles_usuarios = 'moviles_usuarios';
-$tabla_usuarios = 'usuarios';
-$pagina_mis_moviles = 'consultar_comprar.php';
+$pagina_mis_moviles = 'mis_moviles.php';
 // Como en JavaScript pusimos parámetro por 'GET', podemos obtenerlo de esta forma:
 if (isset($_GET['im']) ) {
     $imei = $_GET['im'];
@@ -24,7 +18,7 @@ $result = $con->query($busqueda_movil);
 $count = mysqli_num_rows($result);
 
 if ($count == 1) {
-  // Si es correcto guardamos el móvil
+  // Si es correcto guardamos el usuario completo
   $movilCreado = crearMovil($con, $busqueda_movil, $imei);
   if ($movilCreado == null){
     echo "<script type='text/javascript'>
@@ -34,34 +28,13 @@ if ($count == 1) {
     mysqli_close($con);
     exit;
   }
-
   $venta = comprobarEstadoVenta($con, $imei, $tabla_moviles_usuarios);
-  // Obtenemos datos del vendedor
-  $uidVendedor = obtenerUidVendedor($con, $imei, $tabla_moviles_usuarios);
-  $busqueda_vendedor = "SELECT nombre, localidad FROM $tabla_usuarios WHERE uid = '$uidVendedor'";
-  $correcto = false;
-
-  foreach ($con->query($busqueda_vendedor) as $indiceFila => $value){
-    $nombreVendedor = $value["nombre"];
-    $ciudadVendedor = $value["localidad"];
-  }
-  if (!empty($nombreVendedor) && !empty($ciudadVendedor)) {
-    $correcto = true;
-  }
-  if (!$correcto) {
-      echo "<script type='text/javascript'>
-      alert('Error al obtener datos del vendedor.');
-      window.location.href='$pagina_mis_moviles';
-      </script>";
-      mysqli_close($con);
-      exit;
-  }
-
   mysqli_close($con);
 }
 
 
   function crearMovil($conn, $busqueda_movil, $imei){
+    $resultadoSQL = true;
     $movil = null;
     // Recorremos el array de la query para guardar los datos en $arrayMovil
     foreach ($conn->query($busqueda_movil) as $indiceFila => $value){
@@ -95,14 +68,6 @@ if ($count == 1) {
     $resultadoVenta = mysqli_fetch_array($result)[0];
     return $resultadoVenta;
   }
-  function obtenerUidVendedor ($con, $imei, $tabla_moviles_usuarios) {
-    $uidVendedor;
-    $query_en_venta = "SELECT id_usuario FROM $tabla_moviles_usuarios WHERE imei_movil = '$imei'";
-    $result = $con->query($query_en_venta);
-    $uidVendedor = mysqli_fetch_array($result)[0];
-    return $uidVendedor;
-  }
-
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +76,7 @@ if ($count == 1) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width" >
-  <title>Mobile Sell - Consultar / Comprar</title>
+  <title>Mobile Sell - Ver/eliminar</title>
   <style>
     @import "../../CSS/Moviles/ver_moviles.css";
     @import "../../CSS/estiloFooter.css";
@@ -125,7 +90,7 @@ if ($count == 1) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-  <script src="../../JavaScript/Moviles/moviles_venta.js"></script>
+  <script src="../../JavaScript/Moviles/eliminar.js"></script>
 
 </head>
 
@@ -161,9 +126,9 @@ if ($count == 1) {
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="anadir.php">Añadir</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="eliminar.php">Eliminar</a>
+            <a class="dropdown-item">Eliminar</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item">Consultar/Comprar</a>
+            <a class="dropdown-item" href="consultar_comprar.php">Consultar/Comprar</a>
           </div>
         </li>
 
@@ -200,16 +165,16 @@ if ($count == 1) {
   </nav>
 
 
-  <div class="container-fluid" id="contenedorVerMovil">
+<div class="container-fluid" id="contenedorVerMovil">
 
     <div class="row" id="tituloPagina">
         <div class="col-sm-12 d-flex justify-content-center">
-            <h1 class="text-center">Ver móvil en venta</h1>
+            <h1 class="text-center">Ver móvil (eliminar)</h1>
         </div>
     </div>
 
 
-    <form enctype="multipart/form-data" id="formularioMovilVenta" name="formularioMovilVenta" action="enviar_mensaje_vendedor.php" method="post">
+    <form enctype="multipart/form-data" id="formularioAddMovil" name="formularioAddMovil" action="anadir.php" method="post">
 
     <div class="form-group row">
       <div class="col-11 col-sm-9 col-md-5 m-auto" id="divFoto">
@@ -298,41 +263,32 @@ if ($count == 1) {
               </div>
             </div>
 
-
-            <div class="col-12 col-md-6 mr-auto divCampos">
-              <label for="nombre_vendedor" class="col-12 col-form-label font-weight-bold">Nombre del vendedor:</label>
+            <div class="col-12 col-md-6 ml-auto divCampos" id="divVenta">
+              <label for="venta" class="col-12 col-form-label font-weight-bold">Producto en venta:</label>
               <div class="col-12">
-                <input disabled value="<?php echo $nombreVendedor; ?> " name="nombre_vendedor" class="form-control" id="nombre_vendedor">
+                <input disabled value=""<?php
+                  if ($venta == 1) {
+                    echo "checked";
+                  }
+                ?> type="checkbox" name="venta" class="form-control" id="venta">
               </div>
             </div>
-
-            <div class="col-12 col-md-6 mr-auto divCampos">
-              <label for="ciudad_vendedor" class="col-12 col-form-label font-weight-bold">Provincia del vendedor:</label>
-              <div class="col-12">
-                <input disabled value="<?php echo $ciudadVendedor; ?> " name="ciudad_vendedor" class="form-control" id="nombre_vendedor">
-              </div>
-            </div>
-
-
-            <div class="col-12 col-md-6 m-auto divCampos">
-                <br>
-                  <button type="button" onclick="regresarAtras()" class="btn-lg btn-outline-secondary btn-block">Volver atrás</button>
-            </div>
-
-            <!-- Para pasar parametros a la siguiente página -->
-            <input type="hidden" name="idV" value="<?php echo $uidVendedor ?>">
-            <input type="hidden" name="im" value="<?php echo $imei ?>">
-
-            <div class="col-12 col-md-6 m-auto divCampos">
+            <div class="col-12 col-md-6 mr-auto divCampos" id="divBoton">
               <br>
-                <button type="button" onclick="quiereComprar()" id="btnInteresado" class="btn-lg btn-outline-dark btn-block">¡Lo quiero!</button>
+                <button type="button" onclick="regresarAtras()" class="btn-lg btn-outline-secondary btn-block">Volver atrás</button>
             </div>
+
+            <div class="col-12 m-auto divCampos" id="divBoton">
+              <br>
+                <button type="button" onclick="eliminar(<?php echo $imei; ?>)" class="btn-lg btn-outline-danger btn-block">Eliminar</button>
+            </div>
+        </div>
     </div>
 
     </div>
     </form>
 
-  </div>
+
 
   </div>
 

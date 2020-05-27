@@ -102,6 +102,8 @@ function obtenerCantidadMoviles($uidUsuario, $tabla_moviles_usuario, $con){
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="miCuenta/editar_perfil.php">Editar perfil</a>
             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="miCuenta/mensajes_recibidos.php?Noleido=1">Mensajes recibidos</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="miCuenta/cerrar_sesion.php">Cerrar sesión</a> <!-- session_destroy(); -->
           </div>
         </li>
